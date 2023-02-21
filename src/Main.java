@@ -16,12 +16,14 @@ public class Main {
             number3 = number1;
             number1 = number2;
             number2 = number3;
-            System.out.println("Теперь число 1 = " + number1+", а число 2 = " + number2 + ".");
+            System.out.println("Теперь число 1 = " + number1 + ", а число 2 = " + number2 + ".");
 
 
         }
 
+        private static class Task2 {
 
+        }
     }
 
     private static class Task3 {
