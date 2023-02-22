@@ -114,5 +114,32 @@ public class Main {
         }
     }
 
+    private static class Task8 {
+        public static void main(String[] args) {
+            int[] numbers = {1, 4, 7, 10, 18, 11};
+            int sum = numbers[0] + numbers[1] + numbers[2] + numbers[3] + numbers[4];
+            double average;
+            double sum1 = 0.0;
+            for (int i = 0; i < numbers.length; i++) {
+                sum1 += numbers[i];
+            }
+            average = sum1 / numbers.length;
+            int mid = numbers.length / 2;
+            int median = 0;
+            if (numbers.length % 2 == 1) {
+                median = numbers[mid];
+            } else {
+                median = (numbers[mid - 1] + numbers[mid]) / 2;
+            }
+            System.out.println(median);
+
+
+        }
+
+    }
 
 }
+
+
+
+
