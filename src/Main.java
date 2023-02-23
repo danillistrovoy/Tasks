@@ -1,3 +1,5 @@
+import com.sun.jdi.IntegerValue;
+
 import java.util.Scanner;
 
 public class Main {
@@ -138,7 +140,73 @@ public class Main {
 
     }
 
+    private static class Task9 {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите грань массива");
+            int n = scanner.nextInt();
+            int [][] matrice = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < matrice.length; j++) {
+                    System.out.print(matrice[i][j] + " ");
+                }
+                System.out.println();
+
+            }
+
+
+
+        }
+
+    }
+
+
+
+    private static class Task10 {
+        public static void main(String[] args) {
+            Scanner numbers = new Scanner(System.in);
+            System.out.println("Введите число №1");
+            double number1 = numbers.nextDouble();
+            System.out.println("Введите число №2");
+            double number2 = numbers.nextDouble();
+            System.out.println("Введите оператор");
+            String operator = numbers.next();
+            switch (operator) {
+                case "+" -> System.out.println("Сумма чисел равняется " + (number1 + number2));
+                case "-" -> System.out.println("Разность чисел равняется " + (number1 - number2));
+                case "*" -> System.out.println("Произведение чисел равняется " + (number1 * number2));
+                case "/" -> System.out.println("Частное чисел равняется " + (number1 / number2));
+                default -> System.out.println("Введите корректный оператор");
+            }
+
+        }
+    }
+    private static class Task11 {
+        public static void main(String[] args) {
+            int biggest = Integer.MAX_VALUE;
+            int problem = Math.addExact(biggest, 1);
+            System.out.println(problem);
+
+        }
+    }
+
+    private static class Task12 {
+        public static void main(String[] args) {
+            Scanner number = new Scanner(System.in);
+            double first = 1.1d;
+            double second = 0.9d;
+            System.out.println(second - first);
+            System.out.println(first - second);
+
+        }
+    }
+
 }
+
+
+
+
+
 
 
 
