@@ -9,34 +9,10 @@ public class Main {
 
     private static class Task1 {             //Ввести 2 переменных(int) и поменять их местами.
         public static void main(String[] args) {
-            Scanner numbers = new Scanner(System.in);
-            System.out.println("Введите целое число №1");
-            int number1 = numbers.nextInt();
-            System.out.println("Введите целое число №2");
-            int number2 = numbers.nextInt();
-            int number3;
-            number3 = number1;
-            number1 = number2;
-            number2 = number3;
-            System.out.println("Теперь число 1 = " + number1 + ", а число 2 = " + number2 + ".");
-
 
         }
 
         private static class Task2 {    //Ввести 2 переменных(int) и поменять их местами без использования третьей переменной
-            public static void main(String[] args) {
-                Scanner numbers = new Scanner(System.in);
-                System.out.println("Введите целое число №1");
-                int number1 = numbers.nextInt();
-                System.out.println("Введите целое число №2");
-                int number2 = numbers.nextInt();
-                number1 = number1 + number2;
-                number2 = number1 - number2;
-                number1 = number1 - number2;
-                System.out.println("Теперь число 1 = " + number1 + ", а число 2 = " + number2 + ".");
-
-
-            }
 
         }
     }
