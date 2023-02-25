@@ -145,21 +145,17 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введите грань массива");
             int n = scanner.nextInt();
-            int [][] matrice = new int[n][n];
+            int[][] matrice = new int[n][n];
+            matrice[0][0] = 2;
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < matrice.length; j++) {
                     System.out.print(matrice[i][j] + " ");
                 }
                 System.out.println();
-
             }
-
-
-
         }
 
     }
-
 
 
     private static class Task10 {
@@ -181,6 +177,7 @@ public class Main {
 
         }
     }
+
     private static class Task11 {
         public static void main(String[] args) {
             int biggest = Integer.MAX_VALUE;
@@ -201,7 +198,63 @@ public class Main {
         }
     }
 
+    private static class Task13 {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите число");
+            int number = scanner.nextInt();
+            int a = 1;
+            while (number > 1) {
+                a = a * number;
+                number--;
+            }
+            System.out.println("Факториал числа равен " + a);
+        }
+    }
+
+    private static class Task14 {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            int n = scanner.nextInt();
+            int[] chain = new int[n];
+            chain[0] = 0;
+            chain[1] = 1;
+            for (int i = 2; i < chain.length; ++i) {
+                chain[i] = chain[i - 1] + chain[i - 2];
+                System.out.print(chain[i] + " ");
+            }
+
+        }
+
+
+    }
+
+
+    private static int factorial(int n) {
+        if (n == 1)
+            return 1;
+        return n * factorial(n - 1);
+
+
+    }
+
+    private static class Task15 {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите число");
+            int n = scanner.nextInt();
+            System.out.println("Факториал числа равняется " + factorial(n));
+        }
+
+
+    }
 }
+
+
+
+
+
+
 
 
 
