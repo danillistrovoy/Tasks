@@ -146,15 +146,13 @@ public class Main {
             System.out.println("Введите грань массива");
             int n = scanner.nextInt();
             int[][] matrice = new int[n][n];
-            matrice[0][0] = 2;
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < matrice.length; i++) {
                 for (int j = 0; j < matrice.length; j++) {
-                    System.out.print(matrice[i][j] + " ");
+                    System.out.print((int)((Math.pow(2,j+1)) * Math.pow(2,i)) + " ");
                 }
                 System.out.println();
             }
         }
-
     }
 
 
@@ -219,7 +217,9 @@ public class Main {
             int[] chain = new int[n];
             chain[0] = 0;
             chain[1] = 1;
-            for (int i = 2; i < chain.length; ++i) {
+            System.out.print(chain[0] + " ");
+            System.out.print(chain[1] + " ");
+            for (int i = 2; i < n; ++i) {
                 chain[i] = chain[i - 1] + chain[i - 2];
                 System.out.print(chain[i] + " ");
             }
@@ -246,9 +246,15 @@ public class Main {
             System.out.println("Факториал числа равняется " + factorial(n));
         }
 
-
     }
-}
+
+
+
+
+
+
+
+
 
 
 
