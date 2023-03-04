@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Stack;
 
 public class Algorithms {
-    private static class Alg1 {
+    private static class Task1 {
         public static void main(String[] args) {
             boolean sorted = false;
 
@@ -25,19 +27,52 @@ public class Algorithms {
         }
     }
 
-    private static class Alg3 {
+    private static class Task3 {
         public static void main(String[] args) {
-            int[] array = new int[] {16, 43, 20, 24, 93, 37, 29, 45, 63, 78};
+            int[] array = new int[]{16, 43, 20, 24, 93, 37, 29, 45, 63, 78};
             for (int i = 0; i < array.length; i++) {
                 int a = array[i];
                 int j = i;
+                int b;
                 while (j > 0 && array[j - 1] >= a) {
+                    b = array[j];
                     array[j] = array[j - 1];
+                    array[j - 1] = b;
                     j--;
                 }
-                array[j] = array[i];
             }
             System.out.println(Arrays.toString(array));
+        }
+    }
+
+    private static class Task4 {
+        public static void main(String[] args) {
+            int[] array = new int[]{16, 43, 20, 24, 93, 37, 29, 45, 63, 78};
+
+        }
+    }
+
+    private static class Task5 {
+        public static void main(String[] args) {
+
+        }
+    }
+
+    private static class Task6 {
+        public static void main(String[] args) {
+
+        }
+    }
+
+    private static class Task7 {
+        public static void main(String[] args) {
+
+        }
+    }
+
+    private static class Task8 {
+        public static void main(String[] args) {
+
         }
     }
 

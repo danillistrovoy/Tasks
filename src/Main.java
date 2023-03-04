@@ -268,6 +268,73 @@ public class Main {
             System.out.println(numberfib + " число последовательности Фибоначчи - " + fib(numberfib));
         }
     }
+
+    private static class Task17 {    //Известны координаты на плоскости двух точек (x1, y1 и x2, y2). Составить программу вычисления расстояния между ними.
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите координату x1 : ");
+            int x1 = scanner.nextInt();
+            System.out.println("Введите координату x2 : ");
+            int x2 = scanner.nextInt();
+            System.out.println("Введите координату y1 : ");
+            int y1 = scanner.nextInt();
+            System.out.println("Введите координату y2 : ");
+            int y2 = scanner.nextInt();
+            double L = Math.sqrt(((Math.pow(x2 - x1, 2)) + (Math.pow(y2 - y1, 2))));
+            System.out.println("Расстояние между точками равно " + L);
+
+        }
+    }
+
+    private static class Task18 { //Дано а. Не используя никаких функций и никаких операций, кроме умножения, получить а^8 за три операции; а^10 и а^16 за четыре операции.
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            int a = scanner.nextInt();
+            /*a = a*a;                //a^8 за три операции
+            a = a*a;
+            a = a*a;
+            System.out.println(a);
+
+             */
+            int a1 = a * a;
+            int a2 = a1 * a1;
+            int a3 = a2 * a2;
+            int a4 = a3 * a1;
+            System.out.println(a4);
+
+        }
+    }
+
+    private static class Task19 {//Заданы координаты трех вершин треугольника (х1, y1), (х2, у2), (х3, у3). Найти его периметр и площадь.
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите координату x1 : ");
+            int x1 = scanner.nextInt();
+            System.out.println("Введите координату x2 : ");
+            int x2 = scanner.nextInt();
+            System.out.println("Введите координату x3 : ");
+            int x3 = scanner.nextInt();
+            System.out.println("Введите координату y1 : ");
+            int y1 = scanner.nextInt();
+            System.out.println("Введите координату y2 : ");
+            int y2 = scanner.nextInt();
+            System.out.println("Введите координату y3 : ");
+            int y3 = scanner.nextInt();
+            double a = Math.sqrt(((Math.pow(x2 - x1, 2)) + (Math.pow(y2 - y1, 2))));
+            double b = Math.sqrt(((Math.pow(x3 - x2, 2)) + (Math.pow(y3 - y2, 2))));
+            double c = Math.sqrt(((Math.pow(x1 - x3, 2)) + (Math.pow(y1 - y3, 2))));
+            double P = a + b + c;
+            double p = (a + b + c) / 2;
+            double h = (2/c) * (Math.sqrt(p*(p-a)*(p-b)*(p-c)));
+            double S = (c * h)/2;
+            System.out.println("Периметр треугольника равняется " + P);
+            System.out.println("Площадь треугольника равняется " + S);
+        }
+    }
+    private static class Task20{
+
+    }
 }
 
 
