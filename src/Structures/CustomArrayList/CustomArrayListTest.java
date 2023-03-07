@@ -17,7 +17,7 @@ public class CustomArrayListTest {
         if (ArrayWOP.size() > 10) {
             for (int i = ArrayWOP.size(); i < ArrayWOP.size() * 2; i++) {
                 ArrayWOP.add(0);
-                if (ArrayWOP.size()==20){
+                if (ArrayWOP.size() == 20) {
                     break;
                 }
             }
@@ -44,7 +44,8 @@ public class CustomArrayListTest {
             throw new RuntimeException("shouldAddElementToArrayAndGetByIndex test not ok!!!");
         }
     }
-    private static class ArrayAdd{
+
+    private static class ArrayAdd {
         public static void main(String[] args) {
             int[] Array = new int[10];
 

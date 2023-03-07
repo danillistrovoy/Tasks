@@ -68,7 +68,7 @@ public class Algorithms {
             for (int i = 0; i < rightArray.length; i++) {
                 rightArray[i] = array[mid + i + 1];
             }
-            int leftIndex = 0;
+         /*   int leftIndex = 0;
             int rightIndex = 0;
             for (int i = left; i < right + 1; i++) {
                 if (leftIndex < leftArray.length && rightIndex < rightArray.length) {
@@ -90,7 +90,7 @@ public class Algorithms {
         }
 
 
-    }
+    }*/
 
 
     private static class BinaryNumberSearch {

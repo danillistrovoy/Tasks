@@ -22,7 +22,7 @@ public class CustomArrayList {
         for (int i = 0; i < P; i++) {
             ConstructorWP.add(i);
         }
-        ConstructorWP.add(5,15);
+        ConstructorWP.add(5, 15);
         System.out.println(ConstructorWP.get(5));
         System.out.println(ConstructorWP.size());
         ConstructorWP.remove(3);
