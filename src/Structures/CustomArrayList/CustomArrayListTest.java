@@ -32,6 +32,7 @@ public class CustomArrayListTest {
 //    ... придумать свои
 
     static void shouldAddElementToArrayAndGetByIndex() {
+//        Заменить ArrayList на свою реализацию CustomArrayList
         var list = new ArrayList<Integer>();
 
         int expectedEl = 123;
