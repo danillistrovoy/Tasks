@@ -48,49 +48,56 @@ public class Algorithms {
     private static class Task4 {
         public static void main(String[] args) {
             int[] array = new int[]{16, 43, 20, 24, 93, 37, 29, 45, 63, 78};
+            mergeSort(array);
+            for (int i = 0; i < array.length ; i++) {
+                System.out.print(array[i] + " ");
+            }
         }
 
-        public static void mergeSort(int[] array, int left, int right) {
-            if (right <= left) return;
-
-            int mid = (left + left) / 2;
-            mergeSort(array, left, mid);
-            mergeSort(array, mid + 1, right);
-            merge(array, left, mid, right);
+        public static void mergeSort(int[] array) {
+            int l = array.length;
+            if (l == 1) {
+                return;
+            }
+            int mid = l / 2;
+            int[] left = new int[mid];
+            int[] right = new int[l - mid];
+            for (int i = 0; i < mid; i++) {
+                left[i] = array[i];
+            }
+            for (int i = 0; i < l - mid; i++) {
+                right[i] = array[i + mid];
+            }
+            mergeSort(left);
+            mergeSort(right);
+            merge(array, left, right);
         }
 
-        public static void merge(int[] array, int left, int mid, int right) {
-            int leftArray[] = new int[mid - left + 1];
-            int rightArray[] = new int[right - mid];
-            for (int i = 0; i < leftArray.length; i++) {
-                leftArray[i] = array[left + i];
-            }
-            for (int i = 0; i < rightArray.length; i++) {
-                rightArray[i] = array[mid + i + 1];
-            }
-         /*   int leftIndex = 0;
-            int rightIndex = 0;
-            for (int i = left; i < right + 1; i++) {
-                if (leftIndex < leftArray.length && rightIndex < rightArray.length) {
-                    if (leftArray[leftIndex] < rightArray[rightIndex]) {
-                        array[i] = leftArray[leftIndex];
-                        leftIndex++;
-                    } else {
-                        array[i] = rightArray[rightIndex];
-                        rightIndex++;
-                    }
-                } else if (leftIndex < leftArray.length) {
-                    array[i] = leftArray[leftIndex];
-                    leftIndex++;
-                } else if (rightIndex < rightArray.length) {
-                    array[i] = rightArray[rightIndex];
-                    rightIndex++;
+        public static void merge(int[] array, int[] left, int[] right) {
+            int l = left.length;
+            int r = right.length;
+            int i = 0;
+            int j = 0;
+            int index = 0;
+            while (i < l && j < r) {
+                if (left[i] < right[j]) {
+                    array[index] = left[i];
+                    i++;
+                    index++;
+                } else {
+                    array[index] = right[j];
+                    j++;
+                    index++;
                 }
             }
+            for (int k = i; k < l ; k++) {
+                array[index++] = left[k];
+            }
+            for (int kk = j; kk < r ; kk++) {
+                array[index++] = right[kk];
+            }
         }
-
-
-    }*/
+    }
 
 
     private static class BinaryNumberSearch {
@@ -125,22 +132,5 @@ public class Algorithms {
         }
     }
 
-    private static class Task6 {
-        public static void main(String[] args) {
-
-        }
-    }
-
-    private static class Task7 {
-        public static void main(String[] args) {
-
-        }
-    }
-
-    private static class Task8 {
-        public static void main(String[] args) {
-
-        }
-    }
 
 }

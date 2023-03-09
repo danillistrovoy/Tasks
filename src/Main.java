@@ -332,9 +332,7 @@ public class Main {
             System.out.println("Площадь треугольника равняется " + S);
         }
     }
-    private static class Task20{
 
-    }
 }
 
 

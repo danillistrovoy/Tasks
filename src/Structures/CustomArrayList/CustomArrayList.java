@@ -1,9 +1,5 @@
 package Structures.CustomArrayList;
 
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
 //    CustomArrayList - динамический массив, значит он изменяет свою размер, когда не хватает кол-ва элементов
 //    Массив на integer
 
@@ -17,18 +13,16 @@ import java.util.Scanner;
 //    4. метод remove - удалить элемент массива по индексу
 public class CustomArrayList {
 
+void add(int el, int index){
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int P = scanner.nextInt();
-        var ConstructorWP = new ArrayList<>();
-        for (int i = 0; i < P; i++) {
-            ConstructorWP.add(i);
-        }
-        ConstructorWP.add(5, 15);
-        System.out.println(ConstructorWP.get(5));
-        System.out.println(ConstructorWP.size());
-        ConstructorWP.remove(3);
-        System.out.println(ConstructorWP);
-    }
 }
+
+
+
+        public CustomArrayList() {
+            int [] arraywp = new int[10];
+            for (int i = 0; i < arraywp.length ; i++) {
+                arraywp[i] = i;
+            }
+        }
+    }
