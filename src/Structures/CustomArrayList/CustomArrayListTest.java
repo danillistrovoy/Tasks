@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class CustomArrayListTest {
     public static void main(String[] args) {
         shouldAddElementToArrayAndGetByIndex();
-        CustomArrayList first = new CustomArrayList();
-        System.out.println(first);
+        CustomArrayList array1 = new CustomArrayList();
+        array1.add(5);
     }
 
 
