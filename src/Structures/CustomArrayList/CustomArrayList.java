@@ -13,25 +13,38 @@ package Structures.CustomArrayList;
 //    4. метод remove - удалить элемент массива по индексу
 public class CustomArrayList {
     int[] array;
-    int el;
-    int index;
-    int l;
-    int n;
+    int size = 0;
 
     public void add(int el) {
-        array[array.length] = el;
+//        1. если element не вмещается в массив, значит надо увеличивать его if size >= array.length
+//        2. Создаём массив размерностью size * 2 newArray
+//        3. Перекладываем элементы из одного массива во второй array => newArray
+//        4. Присваиваем к this.array = newArray
+//        5. Добавление элементы по индексу = size
+
+        array[size] = el;
+        size++;
     }
 
     public void add(int el, int index) {
+        checkArrayIndex(index);
         array[index] = el;
     }
 
     public int get(int index) {
+        checkArrayIndex(index);
         return array[index];
     }
 
+    private void checkArrayIndex(int index) {
+        int lastIndex = size - 1;
+        if (index > lastIndex) {
+            throw new IndexOutOfBoundsException(index);
+        }
+    }
+
     public int size() {
-        return array.length;
+        return size;
     }
 
     public void remove(int index) {

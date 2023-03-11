@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class CustomArrayListTest {
     public static void main(String[] args) {
         shouldAddElementToArrayAndGetByIndex();
+        shouldThrowOutOfBoundException();
         CustomArrayList array1 = new CustomArrayList();
         array1.add(5);
     }
@@ -31,6 +32,17 @@ public class CustomArrayListTest {
             System.out.println("shouldAddElementToArrayAndGetByIndex test ok");
         } else {
             throw new RuntimeException("shouldAddElementToArrayAndGetByIndex test not ok!!!");
+        }
+    }
+
+
+    static void shouldThrowOutOfBoundException() {
+        try {
+            CustomArrayList array1 = new CustomArrayList();
+            array1.get(2);
+            System.out.println("shouldThrowOutOfBoundException test not ok!!!");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("shouldThrowOutOfBoundException test ok!!!");
         }
     }
 
