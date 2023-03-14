@@ -15,24 +15,23 @@ public class CustomArrayList {
     int[] array;
     int size = 0;
 
-    public void add(int el) {
-//        1. если element не вмещается в массив, значит надо увеличивать его if size >= array.length
-//        2. Создаём массив размерностью size * 2 newArray
-//        3. Перекладываем элементы из одного массива во второй array => newArray
-//        4. Присваиваем к this.array = newArray
-//        5. Добавление элементы по индексу = size
-
+    public void  add(int el) {
+    if (size>=array.length){
+        int[] newArray = new int[size * 2];
+        for (int i = 0; i < size ; i++) {
+            newArray[i] = array[i];
+        }
+        this.array = newArray;
+    }
         array[size] = el;
         size++;
     }
 
     public void add(int el, int index) {
-        checkArrayIndex(index);
         array[index] = el;
     }
 
     public int get(int index) {
-        checkArrayIndex(index);
         return array[index];
     }
 
@@ -44,7 +43,7 @@ public class CustomArrayList {
     }
 
     public int size() {
-        return size;
+        return this.array.length;
     }
 
     public void remove(int index) {

@@ -7,11 +7,27 @@ import java.util.Scanner;
 
 public class CustomArrayListTest {
     public static void main(String[] args) {
-        shouldAddElementToArrayAndGetByIndex();
-        shouldThrowOutOfBoundException();
-        CustomArrayList array1 = new CustomArrayList();
-        array1.add(5);
+        CustomArrayList array1 = new CustomArrayList(10);
+        System.out.println("Положить элемент в массив и получить обратно");
+        array1.add(15);
+        System.out.println(array1.get(0));
+        System.out.println("Создать массив на 10 элементов, заполнить и добавить 11, массив должен увеличиться в 2 раза ");
+        for (int i = 0; i < 10; i++) {
+            array1.add(i);
+        }
+        System.out.println(array1.size());
+        array1.add(10, 15);
+        for (int i = 0; i < array1.size(); i++) {
+            System.out.println(array1.array[i] + " ");
+        }
     }
+    }
+
+
+
+
+
+
 
 
 //    1. Положить элемент в массив и получить обратно
@@ -20,13 +36,10 @@ public class CustomArrayListTest {
 //    4. удаление элементы
 //    ... придумать свои
 
-    static void shouldAddElementToArrayAndGetByIndex() {
-//        Заменить ArrayList на свою реализацию CustomArrayList
-        var list = new ArrayList<Integer>();
-
+   /* static void shouldAddElementToArrayAndGetByIndex() {
         int expectedEl = 123;
-        list.add(expectedEl);
-        var actual = list.get(0);
+
+        var actual = .get(0);
 
         if (actual == expectedEl) {
             System.out.println("shouldAddElementToArrayAndGetByIndex test ok");
@@ -48,3 +61,5 @@ public class CustomArrayListTest {
 
 
 }
+
+    */
