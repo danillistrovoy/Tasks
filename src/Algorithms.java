@@ -49,7 +49,7 @@ public class Algorithms {
         public static void main(String[] args) {
             int[] array = new int[]{16, 43, 20, 24, 93, 37, 29, 45, 63, 78};
             mergeSort(array);
-            for (int i = 0; i < array.length ; i++) {
+            for (int i = 0; i < array.length; i++) {
                 System.out.print(array[i] + " ");
             }
         }
@@ -90,10 +90,10 @@ public class Algorithms {
                     index++;
                 }
             }
-            for (int k = i; k < l ; k++) {
+            for (int k = i; k < l; k++) {
                 array[index++] = left[k];
             }
-            for (int kk = j; kk < r ; kk++) {
+            for (int kk = j; kk < r; kk++) {
                 array[index++] = right[kk];
             }
         }

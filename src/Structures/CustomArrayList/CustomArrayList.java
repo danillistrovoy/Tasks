@@ -12,17 +12,17 @@ package Structures.CustomArrayList;
 //    3. метод size - получить размер массива
 //    4. метод remove - удалить элемент массива по индексу
 public class CustomArrayList {
-    int[] array;
-    int size = 0;
+    private int[] array;
+    private int size = 0;
 
-    public void  add(int el) {
-    if (size>=array.length){
-        int[] newArray = new int[size * 2];
-        for (int i = 0; i < size ; i++) {
-            newArray[i] = array[i];
+    public void add(int el) {
+        if (size >= array.length) {
+            int[] newArray = new int[size * 2];
+            for (int i = 0; i < size; i++) {
+                newArray[i] = array[i];
+            }
+            this.array = newArray;
         }
-        this.array = newArray;
-    }
         array[size] = el;
         size++;
     }
@@ -32,6 +32,7 @@ public class CustomArrayList {
     }
 
     public int get(int index) {
+        checkArrayIndex(index);
         return array[index];
     }
 
@@ -43,13 +44,16 @@ public class CustomArrayList {
     }
 
     public int size() {
-        return this.array.length;
+        return size;
     }
 
     public void remove(int index) {
-        for (int i = index; i < array.length; i++) {
-            array[i - 1] = array[i];
-            array[i] = 0;
+        for (int i = index; i < size; i++) {
+            if (array[i + 1] > size) {
+                break;
+            } else {
+                array[i] = array[i + 1];
+            }
         }
     }
 

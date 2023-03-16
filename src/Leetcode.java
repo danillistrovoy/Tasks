@@ -3,7 +3,8 @@
 public class Leetcode {
     public static void main(String[] args) {
         int[] testarray = new int[]{1, 3, 6, 8, 9, 11, 23, 13, 12, 15};
-        twoSum(testarray, 16);
+        palindromeCheck(121);
+        twoSum(testarray, 20);
     }
 
     public static int[] twoSum(int[] nums, int target) {
@@ -20,15 +21,25 @@ public class Leetcode {
         }
         return null;
     }
-}
 
-  /*  public boolean palindromeCheck(int x) {
-        if (x == 0) {
-            return true;
-        }
-        if (x < 0 || x % 10 == 0) {
+
+    public static boolean palindromeCheck(int x) {
+        if (x < 0) {
             return false;
         }
-
+        if (x != 0 && x % 10 == 0) {
+            return false;
+        }
+        int copyx = x;
+        int inverted = 0;
+        while (copyx != 0) {
+            inverted = inverted * 10 + copyx % 10;
+            copyx = copyx / 10;
+        }
+        System.out.println(inverted == x);
+        return inverted == x;
     }
-}*/
+}
+
+
+
