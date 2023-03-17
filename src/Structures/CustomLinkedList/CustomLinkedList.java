@@ -3,21 +3,37 @@ package Structures.CustomLinkedList;
 import java.util.LinkedList;
 
 public class CustomLinkedList {
-    private Node head;
-    public class Node {
-        public int data;
-        public Node next;
+    private Link head;
+    private int size;
 
-        public Node(int data) {
-            this.data = data;
-            next = null;
-        }
-        public void add(int data){
-            Node newNode = new Node(data);
-            if (head == null){
-                head = newNode;
-            }
-        }
+    public CustomLinkedList() {
+        head = null;
+        size = 0;
+    }
 
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public void insertAtHead(int data) {
+        if (head == null) {
+            head = new Link(null, data ,null);
+        }
+        else {
+            Link newLink = new Link(null,data,head);
+            head.prev = newLink;
+            head = newLink;
+        }
+        size++;
+    }
+    public int size(){
+        return size;
+    }
+    public void print(){
+        Link current = head;
+        while (current != null){
+            System.out.println(current.Data());
+            current = current.next;
+        }
     }
 }
