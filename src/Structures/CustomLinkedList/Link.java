@@ -5,15 +5,17 @@ public class Link {
     public Link prev;
     public Link next;
 
-    public Link(int data){
+    public Link(int data) {
         this.data = data;
     }
-    public Link(Link prev, int data, Link next){
+
+    public Link(Link prev, int data, Link next) {
         this.prev = prev;
         this.data = data;
         this.next = next;
     }
-    public int Data(){
+
+    public int Data() {
         return data;
     }
 

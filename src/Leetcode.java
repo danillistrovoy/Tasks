@@ -12,10 +12,7 @@ public class Leetcode {
             for (int j = i + 1; j < nums.length; j++) {
                 int matched = target - nums[i];
                 if (nums[j] == matched) {
-                    int[] done = new int[]{i, j};
-                    for (int k = 0; k < done.length; k++) {
-                        System.out.print(done[k] + " ");
-                    }
+                    return new int[]{i,j};
                 }
             }
         }
