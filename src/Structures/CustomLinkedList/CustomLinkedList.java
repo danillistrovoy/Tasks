@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class CustomLinkedList {
     private Link head;
+    private Link end;
     private int size;
 
     public CustomLinkedList() {
@@ -113,9 +114,6 @@ public class CustomLinkedList {
             current.next.prev = current.prev;
         }
         size--;
-        {
-
-        }
     }
 
     public int search(int index) {
