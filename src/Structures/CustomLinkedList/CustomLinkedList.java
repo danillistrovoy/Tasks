@@ -9,6 +9,7 @@ public class CustomLinkedList {
 
     public CustomLinkedList() {
         head = null;
+        end = null;
         size = 0;
     }
 
@@ -18,7 +19,8 @@ public class CustomLinkedList {
 
     public void insertAtHead(int data) {
         if (head == null) {
-            head = new Link(null, data, null);
+            Link newLink = new Link(null, data, null);
+            head = newLink;
         } else {
             Link newLink = new Link(null, data, head);
             head.prev = newLink;
@@ -42,18 +44,14 @@ public class CustomLinkedList {
     }
 
     public void deleteFromHead() {
-        if (head == null) {
-            return;
-        }
+        headtoNull();
         head = head.next;
         head.prev = null;
         size--;
     }
 
     public void deleteFromEnd() {
-        if (head == null) {
-            return;
-        }
+        headtoNull();
         if (head.next == null) {
             head = null;
             size--;
@@ -68,9 +66,7 @@ public class CustomLinkedList {
     }
 
     public void insertByIndex(int data, int index) {
-        if (head == null) {
-            return;
-        }
+        headtoNull();
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Введен некорректный индекс");
         }
@@ -140,6 +136,17 @@ public class CustomLinkedList {
         Link current = head;
         while (current != null) {
             System.out.println(current.Data());
+            current = current.next;
+        }
+    }
+    public void headtoNull(){
+        if (head==null){
+            return;
+        }
+    }
+    public void throughList(){
+        Link current = head;
+        while (current.next != null) {
             current = current.next;
         }
     }
