@@ -9,8 +9,8 @@ public class CustomLinkedList {
 
     public CustomLinkedList() {
         head = null;
-        end = null;
         size = 0;
+        end = null;
     }
 
     public boolean isEmpty() {
@@ -139,12 +139,14 @@ public class CustomLinkedList {
             current = current.next;
         }
     }
-    public void headtoNull(){
-        if (head==null){
+
+    public void headtoNull() {
+        if (head == null) {
             return;
         }
     }
-    public void throughList(){
+
+    public void throughList() {
         Link current = head;
         while (current.next != null) {
             current = current.next;
