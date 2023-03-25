@@ -33,16 +33,16 @@ public class CustomLinkedListTest {
     }
 
     static void deleteElementByIndexTest() {
-        CustomLinkedList test3 = new CustomLinkedList();
-        test3.insertAtHead(5);
-        test3.insertAtHead(10);
-        test3.insertAtEnd(20);
-        test3.deleteByIndex(1);
-        if (test3.size() == 2 && test3.search(1) == 20) {
-            System.out.println("deleteElementByIndexTest is ok!");
-        } else {
+        try{
+            CustomLinkedList test3 = new CustomLinkedList();
+            test3.deleteByIndex(3);
             System.out.println("deleteElementByIndexTest is not ok!");
         }
+        catch (IndexOutOfBoundsException e){
+            System.out.println("deleteElementByIndexTest is ok!");
+        }
+
+
     }
 
     static void deleteFromHeadTest() {
@@ -74,10 +74,11 @@ public class CustomLinkedListTest {
 
     static void isEmptyTest() {
         CustomLinkedList test6 = new CustomLinkedList();
+        test6.insertAtHead(2);
         if (test6.isEmpty()) {
-            System.out.println("isEmptyTest is ok!");
-        } else {
             System.out.println("isEmptyTest is not ok!");
+        } else {
+            System.out.println("isEmptyTest is ok!");
         }
     }
 }

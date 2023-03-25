@@ -4,13 +4,11 @@ import java.util.LinkedList;
 
 public class CustomLinkedList {
     private Link head;
-    private Link end;
     private int size;
 
     public CustomLinkedList() {
         head = null;
         size = 0;
-        end = null;
     }
 
     public boolean isEmpty() {
@@ -44,14 +42,18 @@ public class CustomLinkedList {
     }
 
     public void deleteFromHead() {
-        headtoNull();
+        if (head == null) {
+            return;
+        }
         head = head.next;
         head.prev = null;
         size--;
     }
 
     public void deleteFromEnd() {
-        headtoNull();
+        if (head == null) {
+            return;
+        }
         if (head.next == null) {
             head = null;
             size--;
@@ -66,7 +68,9 @@ public class CustomLinkedList {
     }
 
     public void insertByIndex(int data, int index) {
-        headtoNull();
+        if (head == null) {
+            return;
+        }
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Введен некорректный индекс");
         }
@@ -136,19 +140,6 @@ public class CustomLinkedList {
         Link current = head;
         while (current != null) {
             System.out.println(current.Data());
-            current = current.next;
-        }
-    }
-
-    public void headtoNull() {
-        if (head == null) {
-            return;
-        }
-    }
-
-    public void throughList() {
-        Link current = head;
-        while (current.next != null) {
             current = current.next;
         }
     }
