@@ -5,8 +5,7 @@ public class CustomStack {
     private int[] array;
     private int top;
 
-    public CustomStack(int s) {
-        size = s;
+    public CustomStack(int size) {
         array = new int[size];
         top = -1;
     }
@@ -22,8 +21,9 @@ public class CustomStack {
 
     public int pop() {
         if (isEmpty()) {
-            System.out.println("Stack is empty");
-            return 0;
+            throw new ArrayIndexOutOfBoundsException("Stack is empty");
+        } else if (top == 0) {
+            return array[top];
         } else {
             return array[--top];
         }
@@ -31,8 +31,7 @@ public class CustomStack {
 
     public int top() {
         if (isEmpty()) {
-            System.out.println("Stack is empty");
-            return 0;
+            throw new ArrayIndexOutOfBoundsException("Stack is empty");
         } else {
             return array[top];
         }

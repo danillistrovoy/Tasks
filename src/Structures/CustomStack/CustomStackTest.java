@@ -5,7 +5,8 @@ public class CustomStackTest {
         popTest();
         pushTest();
         isEmptyTest();
-        //topTest();
+        topTest();
+
     }
 
     static void popTest() {
@@ -13,9 +14,9 @@ public class CustomStackTest {
         try {
             stack.push(10);
             stack.pop();
-            System.out.println("popTest is not ok!");
-        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("popTest is ok!");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("popTest is not ok!");
         }
     }
 
@@ -38,10 +39,17 @@ public class CustomStackTest {
             System.out.println("pushTest is not ok!");
         }
     }
-}
-    /*static void topTest(){
-        CustomStack stack = new CustomStack(10);
 
+    static void topTest() {
+        CustomStack stack = new CustomStack(10);
+        try {
+            stack.top();
+            System.out.println("topTest is not ok!");
         }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("topTest is ok!");
+        }
+
     }
+}
 

@@ -33,12 +33,11 @@ public class CustomLinkedListTest {
     }
 
     static void deleteElementByIndexTest() {
-        try{
+        try {
             CustomLinkedList test3 = new CustomLinkedList();
             test3.deleteByIndex(3);
             System.out.println("deleteElementByIndexTest is not ok!");
-        }
-        catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("deleteElementByIndexTest is ok!");
         }
 
