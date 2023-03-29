@@ -6,34 +6,43 @@ public class CustomStackTest {
         pushTest();
         isEmptyTest();
         topTest();
+        fullStackTest();
 
     }
 
     static void popTest() {
-        CustomStack stack = new CustomStack(5);
-        try {
-            stack.push(10);
-            stack.pop();
+        CustomStack stack = new CustomStack(3);
+        stack.push(10);
+        stack.push(15);
+        stack.push(20);
+        int expected = 15;
+        int actual = stack.pop();
+        int expectedsize = 2;
+        int actualsize = stack.size();
+        if (expected == actual && expectedsize == actualsize) {
             System.out.println("popTest is ok!");
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } else {
             System.out.println("popTest is not ok!");
         }
     }
 
+
     static void isEmptyTest() {
         CustomStack stack = new CustomStack(6);
         stack.push(10);
+        stack.pop();
         if (stack.isEmpty()) {
-            System.out.println("isEmptyTest is not ok!");
-        } else {
             System.out.println("isEmptyTest is ok!");
+        } else {
+            System.out.println("isEmptyTest is not ok!");
         }
     }
 
     static void pushTest() {
         CustomStack stack = new CustomStack(10);
         stack.push(10);
-        if (stack.top() == 10) {
+        stack.push(15);
+        if (stack.top() == 15 && stack.size() == 2) {
             System.out.println("pushTest is ok!");
         } else {
             System.out.println("pushTest is not ok!");
@@ -42,14 +51,32 @@ public class CustomStackTest {
 
     static void topTest() {
         CustomStack stack = new CustomStack(10);
-        try {
-            stack.top();
+        stack.push(10);
+        stack.push(15);
+        int expected = 15;
+        int actual = stack.top();
+        int expectedsize = 2;
+        int actualsize = stack.size();
+        if (expected == actual && expectedsize == actualsize) {
+            System.out.println("topTest is ok!");
+        } else {
             System.out.println("topTest is not ok!");
         }
-        catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("topTest is ok!");
+    }
+    static void fullStackTest(){
+        CustomStack stack = new CustomStack(3);
+        try {
+            stack.push(10);
+            stack.push(10);
+            stack.push(10);
+            stack.push(10);
+            System.out.println("fullStackTest is not ok!");
+        }
+        catch (IndexOutOfBoundsException e){
+            System.out.println("fullStackTest is ok!");
         }
 
     }
 }
+
 

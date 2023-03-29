@@ -14,7 +14,6 @@ public class CustomArrayListTest {
         removeElementFromArrayTest();
     }
 
-//    ... придумать свои
 
     static void shouldAddElementToArrayAndGetByIndex() {
         CustomArrayList test1 = new CustomArrayList();
@@ -75,7 +74,6 @@ public class CustomArrayListTest {
             System.out.println("removeElementFromArray test not ok!");
         }
     }
-    //static void
 }
 
 

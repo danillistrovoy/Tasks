@@ -11,20 +11,26 @@ public class CustomStack {
     }
 
     public boolean isEmpty() {
-        return top == -1;
+        return (top == -1 && size == 0);
     }
 
     public void push(int data) {
         int i = ++top;
         array[i] = data;
+        size++;
     }
 
     public int pop() {
         if (isEmpty()) {
             throw new ArrayIndexOutOfBoundsException("Stack is empty");
         } else if (top == 0) {
-            return array[top];
-        } else {
+            int data = array[top];
+            top--;
+            size--;
+            return data;
+        }
+        else {
+            size--;
             return array[--top];
         }
     }
@@ -37,4 +43,9 @@ public class CustomStack {
         }
     }
 
+    public int size() {
+        return size;
+    }
 }
+
+

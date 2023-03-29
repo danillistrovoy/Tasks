@@ -20,7 +20,7 @@ public class CustomLinkedList {
             Link newLink = new Link(null, data, null);
             head = newLink;
         } else {
-            Link newLink = new Link(head.next, data, head);
+            Link newLink = new Link(head.prev, data, head);
             head.prev = newLink;
             head = newLink;
         }
