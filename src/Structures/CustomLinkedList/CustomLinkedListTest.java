@@ -13,6 +13,7 @@ public class CustomLinkedListTest {
     static void insertElementAtHeadTest() {
         CustomLinkedList test = new CustomLinkedList();
         test.insertAtHead(15);
+        test.insertAtHead(20);
         if (test.search(0) == 15) {
             System.out.println("insertElementAtHeadTest is ok!");
         } else {
