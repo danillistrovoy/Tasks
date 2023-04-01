@@ -14,7 +14,7 @@ public class CustomLinkedListTest {
         CustomLinkedList test = new CustomLinkedList();
         test.insertAtHead(15);
         test.insertAtHead(20);
-        if (test.search(0) == 15) {
+        if (test.search(0) == 20) {
             System.out.println("insertElementAtHeadTest is ok!");
         } else {
             System.out.println("insertElementAtHeadTest is not ok !");
