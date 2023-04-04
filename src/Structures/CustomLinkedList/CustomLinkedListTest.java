@@ -1,5 +1,7 @@
 package Structures.CustomLinkedList;
 
+import java.util.concurrent.Callable;
+
 public class CustomLinkedListTest {
     public static void main(String[] args) {
         insertElementAtHeadTest();
@@ -8,6 +10,8 @@ public class CustomLinkedListTest {
         deleteFromHeadTest();
         searchElementTest();
         isEmptyTest();
+        deleteFromEndTest();
+        insertByIndexTest();
     }
 
     static void insertElementAtHeadTest() {
@@ -34,15 +38,16 @@ public class CustomLinkedListTest {
     }
 
     static void deleteElementByIndexTest() {
-        try {
-            CustomLinkedList test3 = new CustomLinkedList();
-            test3.deleteByIndex(3);
-            System.out.println("deleteElementByIndexTest is not ok!");
-        } catch (IndexOutOfBoundsException e) {
+        CustomLinkedList test3 = new CustomLinkedList();
+        test3.insertAtHead(10);
+        test3.insertAtHead(15);
+        test3.insertAtHead(20);
+        test3.deleteByIndex(1);
+        if (test3.size() == 2 && test3.search(1) == 10) {
             System.out.println("deleteElementByIndexTest is ok!");
+        } else {
+            System.out.println("deleteElementByIndexTest is not ok!");
         }
-
-
     }
 
     static void deleteFromHeadTest() {
@@ -79,6 +84,29 @@ public class CustomLinkedListTest {
             System.out.println("isEmptyTest is not ok!");
         } else {
             System.out.println("isEmptyTest is ok!");
+        }
+    }
+
+    static void deleteFromEndTest() {
+        CustomLinkedList test7 = new CustomLinkedList();
+        test7.insertAtHead(10);
+        test7.insertAtEnd(15);
+        test7.deleteFromEnd();
+        if (test7.size() == 1 && test7.search(0) == 10) {
+            System.out.println("deleteFromEndTest is ok!");
+        } else {
+            System.out.println("deleteFromEndTest is not ok!");
+        }
+    }
+
+    static void insertByIndexTest() {
+        CustomLinkedList test8 = new CustomLinkedList();
+        test8.insertAtHead(10);
+        test8.insertByIndex(5, 1);
+        if (test8.size() == 2 && test8.search(1) == 5 && test8.search(0) == 10) {
+            System.out.println("insertByIndexTest is ok!");
+        } else {
+            System.out.println("insertByIndexTest is not ok!");
         }
     }
 }

@@ -4,7 +4,6 @@ public class CustomQueue {
     private int[] array;
     private int front;
     private int back;
-    private int size;
 
     public CustomQueue(int sizeOfArray) {
         array = new int[sizeOfArray];
@@ -13,35 +12,36 @@ public class CustomQueue {
     }
 
     public boolean isEmpty() {
-        return size == 0;
+        return back - front == 0;
     }
 
     public void enqueue(int data) {
-        if (back != array.length - 1) {
-            back++;
-            array[back] = data;
-            size++;
+            if (back != array.length - 1) {
+                back++;
+                array[back] = data;
+            }
+            else {
+                throw new ArrayIndexOutOfBoundsException();
+            }
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            throw new IndexOutOfBoundsException("Array is empty");
+        } else {
+            return array[++front];
         }
     }
 
-    public void dequeue(){
-        if (isEmpty()){
+    public int top() {
+        if (isEmpty()) {
             throw new IndexOutOfBoundsException("Array is empty");
-        }
-        else {
-            front++;
-            size--;
+        } else {
+            return array[front + 1];
         }
     }
-    public int top(){
-        if (isEmpty()){
-            throw new IndexOutOfBoundsException("Array is empty");
-        }
-        else {
-            return array[front+1];
-        }
-    }
-    public int getSize(){
-        return size;
+
+    public int getSize() {
+        return back - front;
     }
 }

@@ -7,7 +7,6 @@ public class CustomStackTest {
         isEmptyTest();
         topTest();
         fullStackTest();
-
     }
 
     static void popTest() {

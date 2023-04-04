@@ -81,19 +81,27 @@ public class CustomLinkedList {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Введен некорректный индекс");
         }
+        if (size == 1 && index == 1) {
+            Link newLink = new Link(head, data, head);
+            head.next = newLink;
+            head.prev.next = head;
+            head.next.next = head;
+            size++;
+            return;
+        }
         Link current = head;
         int i = 0;
         while (i < index) {
             current = current.next;
             i++;
         }
-        if (current.prev == head.prev) {
+        if (current == head) {
             Link newLink = new Link(head.prev, data, current);
             current.prev = newLink;
             head = newLink;
             head.prev.next = head;
-
-        } else {
+        }
+         else {
             Link newLink = new Link(current.prev, data, current);
             current.prev.next = newLink;
             current.prev = newLink;
@@ -105,7 +113,7 @@ public class CustomLinkedList {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Введен некорректный индекс");
         }
-        if (head.prev == head && head.next == head) {
+        if (index == 0 && size == 1) {
             head = null;
             size--;
             return;
@@ -119,7 +127,7 @@ public class CustomLinkedList {
         if (current.next == head) {
             current.prev.next = head;
             head.prev = current.prev;
-        } else if (current.prev == head.prev) {
+        } else if (current == head) {
             head = head.next;
             head.prev = head.prev.prev;
             head.prev.next = head;
@@ -134,7 +142,7 @@ public class CustomLinkedList {
         if (head == null) {
             throw new IndexOutOfBoundsException("List is empty");
         }
-        if (head != null && index == 0) {
+        if (index == 0) {
             return head.Data();
         }
         int i = 0;
