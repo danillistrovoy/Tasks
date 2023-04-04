@@ -1,7 +1,6 @@
 package Structures.CustomStack;
 
 public class CustomStack {
-    private int size;
     private int[] array;
     private int top;
 
@@ -11,13 +10,12 @@ public class CustomStack {
     }
 
     public boolean isEmpty() {
-        return (top == -1 && size == 0);
+        return (top == -1);
     }
 
     public void push(int data) {
         int i = ++top;
         array[i] = data;
-        size++;
     }
 
     public int pop() {
@@ -26,11 +24,8 @@ public class CustomStack {
         } else if (top == 0) {
             int data = array[top];
             top--;
-            size--;
             return data;
-        }
-        else {
-            size--;
+        } else {
             return array[--top];
         }
     }
@@ -44,7 +39,7 @@ public class CustomStack {
     }
 
     public int size() {
-        return size;
+        return top + 1;
     }
 }
 

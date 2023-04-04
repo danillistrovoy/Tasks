@@ -6,7 +6,8 @@ public class CustomStackTest {
         pushTest();
         isEmptyTest();
         topTest();
-        fullStackTest();
+        pushElementIntoFullStack();
+        popElementFromEmptyStack();
     }
 
     static void popTest() {
@@ -62,7 +63,8 @@ public class CustomStackTest {
             System.out.println("topTest is not ok!");
         }
     }
-    static void fullStackTest(){
+
+    static void pushElementIntoFullStack() {
         CustomStack stack = new CustomStack(3);
         try {
             stack.push(10);
@@ -70,11 +72,19 @@ public class CustomStackTest {
             stack.push(10);
             stack.push(10);
             System.out.println("fullStackTest is not ok!");
-        }
-        catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("fullStackTest is ok!");
         }
+    }
 
+    static void popElementFromEmptyStack() {
+        CustomStack stack = new CustomStack(4);
+        try {
+            stack.pop();
+            System.out.println("popElementFromEmptyStackTest is not ok!");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("popElementFromEmptyStackTest is ok!");
+        }
     }
 }
 

@@ -84,8 +84,8 @@ public class CustomLinkedList {
         if (size == 1 && index == 1) {
             Link newLink = new Link(head, data, head);
             head.next = newLink;
+            head.prev = newLink;
             head.prev.next = head;
-            head.next.next = head;
             size++;
             return;
         }
@@ -100,8 +100,7 @@ public class CustomLinkedList {
             current.prev = newLink;
             head = newLink;
             head.prev.next = head;
-        }
-         else {
+        } else {
             Link newLink = new Link(current.prev, data, current);
             current.prev.next = newLink;
             current.prev = newLink;

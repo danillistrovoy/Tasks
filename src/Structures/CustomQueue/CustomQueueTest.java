@@ -7,7 +7,7 @@ public class CustomQueueTest {
         dequeueTest();
         topTest();
         enqueueElementIntoFullQueue();
-        dequeueElementInEmptyQueue();
+        dequeueElementFromEmptyQueue();
     }
 
     static void isEmptyTest() {
@@ -71,13 +71,13 @@ public class CustomQueueTest {
             System.out.println("enqueueElementIntoFullQueueTest is ok!");
         }
     }
-    static void dequeueElementInEmptyQueue(){
+
+    static void dequeueElementFromEmptyQueue() {
         CustomQueue queue = new CustomQueue(3);
         try {
             queue.dequeue();
             System.out.println("dequeueElementInEmptyQueueTest is not ok!");
-        }
-        catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("dequeueElementInEmptyQueueTest is ok!");
         }
     }

@@ -16,13 +16,12 @@ public class CustomQueue {
     }
 
     public void enqueue(int data) {
-            if (back != array.length - 1) {
-                back++;
-                array[back] = data;
-            }
-            else {
-                throw new ArrayIndexOutOfBoundsException();
-            }
+        if (back != array.length - 1) {
+            back++;
+            array[back] = data;
+        } else {
+            throw new ArrayIndexOutOfBoundsException();
+        }
     }
 
     public int dequeue() {
