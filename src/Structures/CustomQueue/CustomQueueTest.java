@@ -8,6 +8,7 @@ public class CustomQueueTest {
         topTest();
         enqueueElementIntoFullQueue();
         dequeueElementFromEmptyQueue();
+        getSizeTest();
     }
 
     static void isEmptyTest() {
@@ -82,4 +83,15 @@ public class CustomQueueTest {
         }
     }
 
+    static void getSizeTest() {
+        CustomQueue queue = new CustomQueue(5);
+        queue.enqueue(5);
+        queue.enqueue(5);
+        queue.dequeue();
+        if (queue.getSize() == 1) {
+            System.out.println("getSizeTest is ok!");
+        } else {
+            System.out.println("getSizeTest is not ok!");
+        }
+    }
 }
