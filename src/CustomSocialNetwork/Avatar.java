@@ -11,4 +11,12 @@ public class Avatar extends Photo {
         this.mainPagePicture = mainPagePicture;
         this.previewPicture = previewPicture;
     }
+
+    public URL getMainPagePicture() {
+        return mainPagePicture;
+    }
+
+    public URL getPreviewPicture() {
+        return previewPicture;
+    }
 }

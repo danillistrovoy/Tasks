@@ -15,8 +15,48 @@ public class User {
     private List<Post> wall;
     private List<User> blacklist;
     private List<Dialogue> dialogues;
-    private List <Public> publics;
-    private List <Group> groups;
+    private List<Public> publics;
+    private List<Group> groups;
+
+    public Avatar getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public LocalDateTime getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDateTime birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
     public User(Avatar avatar, String gender, LocalDateTime birthDate, String name, String surname) {
         this.avatar = avatar;
@@ -25,42 +65,53 @@ public class User {
         this.name = name;
         this.surname = surname;
     }
-    public void deletePlaylist(Playlist playlist){
 
-    }
-    public void sharePlaylist(Playlist playlist, Dialogue dialogue){
-
-    }
-    public void addFriend(User friend){
-
-    }
-    public void deleteFriend(User friend){
-
-    }
-    public void blockUser(User user){
-
-    }
-    public void addPhotoToGallery(Photo photo){
-
-    }
-    public void repostPhoto(Photo photo){
-
-    }
-    public void openMessenger(NewMessenger messenger){
-
-    }
-    public void openMessenger(OldMessenger messenger){
-
-    }
-    public void usePlayer(Player player){
-
-    }
-    public void subscribe(User user, Public pub){
-
-    }
-    public void join (User user, Group group){
+    public void deletePlaylist(Playlist playlist) {
 
     }
 
+    public void sharePlaylist(Playlist playlist, Dialogue dialogue) {
+
+    }
+
+    public void addFriend(User friend) {
+
+    }
+
+    public void deleteFriend(User friend) {
+
+    }
+
+    public void blockUser(User user) {
+
+    }
+
+    public void addPhotoToGallery(Photo photo) {
+
+    }
+
+    public void repostPhoto(Photo photo) {
+
+    }
+
+    public void openMessenger(Messenger messenger) {
+
+    }
+
+    public void usePlayer(Player player) {
+
+    }
+
+    public void subscribe(User user, Public pub) {
+
+    }
+
+    public void join(User user, Group group) {
+
+    }
+
+    public void showUserInfo() {
+
+    }
 }
 

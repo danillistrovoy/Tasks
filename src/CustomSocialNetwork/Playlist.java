@@ -1,15 +1,31 @@
 package CustomSocialNetwork;
 
 import java.time.LocalDateTime;
-import java.util.LinkedList;
+import java.util.List;
 
 public class Playlist {
     private LocalDateTime lastChange;
     private double duration;
-    private int listeningsNumber;
+    private int listeningNumber;
     private String name;
-    private LinkedList<Song> songs;
+    private List<Song> songs;
     private User creator;
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void deleteSong(Song song) {
 
@@ -19,12 +35,12 @@ public class Playlist {
 
     }
 
-    public Playlist(LinkedList<Song> songs, User creator) {
+    public Playlist(List<Song> songs, User creator) {
         this.songs = songs;
         this.creator = creator;
     }
 
-    private void listeningsMeasure() {
+    private void listeningMeasure() {
 
     }
 

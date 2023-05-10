@@ -6,6 +6,7 @@ public class NewMessenger implements Messenger {
     private Dialogue openedDialogue;
     private List<Dialogue> dialogues;
 
+
     @Override
     public void showDialogues(List<Dialogue> dialogues) {
 

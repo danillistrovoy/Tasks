@@ -13,6 +13,30 @@ public class Photo {
     private List<Like> likes;
     private URL picture;
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setPostTime(LocalDateTime postTime) {
+        this.postTime = postTime;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public URL getPicture() {
+        return picture;
+    }
+
+    public void setPicture(URL picture) {
+        this.picture = picture;
+    }
+
     public Photo(User author, URL picture) {
         this.author = author;
         this.picture = picture;
@@ -26,7 +50,7 @@ public class Photo {
     public void addComment (Comment comment){
 
     }
-    private URL getPicture(URL pictureFile){
-        return pictureFile;
+    private File getPicture(URL pictureFile){
+        return null;
     }
 }

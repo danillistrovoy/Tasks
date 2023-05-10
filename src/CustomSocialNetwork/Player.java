@@ -1,30 +1,37 @@
 package CustomSocialNetwork;
 
+import java.io.File;
 import java.net.URL;
 
 public class Player {
     private Song chosenSong;
     private Playlist chosenPlaylist;
 
-    public void showText(){
+    public void showText() {
 
     }
-    public void changeSpeed(){
+
+    public void changeSpeed() {
 
     }
-    public void playSong(Song song){
+
+    public void playSong(Song song) {
 
     }
-    public void pauseSong(){
+
+    public void pauseSong() {
 
     }
-    public void choosePlaylist(Playlist playlist){
+
+    public void choosePlaylist(Playlist playlist) {
 
     }
-    public void playNextSong(Song song){
+
+    public void playNextSong(Song song) {
 
     }
-    public void playPreviousSong(Song song){
+
+    public void playPreviousSong(Song song) {
 
     }
 
@@ -36,7 +43,8 @@ public class Player {
         this.chosenSong = chosenSong;
         this.chosenPlaylist = chosenPlaylist;
     }
-    private URL downloadTrackFile (URL trackUrlFile){
-        return trackUrlFile;
+
+    private File downloadTrackFile(URL trackUrlFile) {
+        return null;
     }
 }

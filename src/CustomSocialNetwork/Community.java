@@ -13,22 +13,51 @@ public abstract class Community {
     private List<Dialogue> dialogues;
     private List<Message> discussions;
 
-    public void deletePost(Post post){
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
+    public void setPrivacy(boolean privacy) {
+        this.privacy = privacy;
+    }
+
+    public Avatar getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void deletePost(Post post) {
 
     }
-    public void addPost(Post post){
+
+    public void addPost(Post post) {
 
     }
-    public void deletePhoto(Photo photo){
+
+    public void deletePhoto(Photo photo) {
 
     }
-    public void addPhoto(Photo photo){
+
+    public void addPhoto(Photo photo) {
 
     }
-    public void addMember(User user){
+
+    public void addMember(User user) {
 
     }
-    public void kickMember(User user){
+
+    public void kickMember(User user) {
 
     }
 

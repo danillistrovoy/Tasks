@@ -10,4 +10,16 @@ public class LikeType {
         this.typeName = typeName;
         this.emoji = emoji;
     }
+
+    public URL getEmoji() {
+        return emoji;
+    }
+
+    public void setEmoji(URL emoji) {
+        this.emoji = emoji;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
 }
