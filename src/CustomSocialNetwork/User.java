@@ -110,8 +110,8 @@ public class User {
 
     }
 
-    public void showUserInfo() {
-
+    public PreviewUserInfo userPreview(PreviewUserInfo previewUserInfo) {
+        return previewUserInfo;
     }
 }
 
