@@ -1,59 +1,60 @@
 package Structures.CustomBinarySearchTree;
 
 public class CustomBinarySearchTree {
-    public void createNewNode(int number) {
-        Node newNode = new Node(number,null,null);
-        newNode.value = number;
-        newNode.left = null;
-        newNode.right = null;
-    }
+    Node root;
 
-    public Node insert(Node node, int value) {
-        if (node == null) {
-            createNewNode(value);
-        }
-        if (value < node.value) {
-            node.left = insert(node.left, value);
-        } else if (value > node.value) {
-            node.right = insert(node.right, value);
-        }
-        return node;
-    }
 
-    public Node deleteNode(Node node, int value) {
-        if (node == null) {
-            return null;
+    public void insertLeaf(Node node, int leafValue) {
+        if (root == null){
+            Node root = new Node(leafValue);
+            return;
         }
-        if (value < node.value) {
-            node.left = deleteNode(node.left, value);
-        } else if (value > node.value) {
-            node.right = deleteNode(node.right, value);
+        if (node.value == leafValue) {
+            return;
         }
-        else {
-            if (node.left == null || node.right == null) {
-                Node temp = null;
-                temp = node.left == null ? node.right : node.left;
-
-            if (temp ==null){
-                return null;
+        if (leafValue < node.value) {
+            if (node.left != null) {
+                insertLeaf(node.left, leafValue);
             } else {
-                return node;
+                node.left = new Node(leafValue);
             }
+        } else {
+            if (node.right != null) {
+                insertLeaf(node.right, leafValue);
+            } else {
+                node.right = new Node(leafValue);
+            }
+        }
+    }
+
+
+    public void deleteNode(int value) {
+        if (root == null) {
+            throw new IllegalArgumentException();
+        }
+        if (root.value == value){
+            Node newRoot = root.right;
+            root.right = root.right.right;
+            root = newRoot;
+            return;
+        }
+        if (value < root.value){
+            if (root.left.value==value){
 
             }
         }
-        return node;
+    }
+    public void printTree (){
+
     }
 
-    public class Node {
+    private static class Node {
         int value;
         Node left;
         Node right;
 
-        public Node(int value, Node left, Node right) {
+        public Node(int value) {
             this.value = value;
-            this.left = left;
-            this.right = right;
         }
     }
 }
