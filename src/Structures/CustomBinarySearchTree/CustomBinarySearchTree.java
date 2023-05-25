@@ -1,7 +1,7 @@
 package Structures.CustomBinarySearchTree;
 
 public class CustomBinarySearchTree {
-    Node root;
+    private Node root;
 
 
     public void insertLeaf(int leafValue) {
@@ -32,60 +32,52 @@ public class CustomBinarySearchTree {
     }
 
 
-    public boolean deleteNode(int value) {
+    public boolean deleteLeaf(int value) {
         if (root == null) {
             return false;
-        }
-        if (root.value == value) {
-            if (root.left == null && root.right == null) {
-                root = null;
-            }
-            if (root.right != null && root.left != null) {
-                root = root.right;
-            }
-            if (root.left != null && root.right == null) {
-                root = root.left;
-            }
-            if (root.right.right == null && root.right.left != null) {
-                root = root.right.left;
-            }
-            if (root.left.right != null && root.right == null) {
-                root = root.left.right;
-            }
+        } else if (root.value == value) {
+            deleteSelectedLeaf(root, value);
+        } else {
             delete(root, value);
         }
-        return true;
+        return false;
     }
 
-    private void delete(Node node, int value) {
+    private boolean delete(Node node, int value) {
         if (value < node.value) {
             if (value == node.left.value) {
-                if (node.left.right == null && node.left.left == null) {
-                    node.left = null;
-                }
-                if (node.left.right != null && node.left.right.left == null) {
-                    node.left = node.left.right;
-                }
-                if (node.left.right.left != null && node.left.left != null) {
-                    node.left = node.left.right.left;
-                } else {
-                    delete(node.left, value);
-                }
+                deleteSelectedLeaf(node.left, value);
+            } else {
+                delete(node.left, value);
             }
         } else {
             if (value == node.right.value) {
-                if (node.right.right == null && node.right.left == null) {
-                    node.right = null;
-                }
-                if (node.right.right != null && node.right.right.left == null) {
-                    node.right = node.right.right;
-                }
-                if (node.right.right.left != null && node.right.left != null) {
-                    node.right = node.right.right.left;
-                }
+                deleteSelectedLeaf(node.right, value);
             } else {
                 delete(node.right, value);
             }
+        }
+        return false;
+    }
+
+    private void deleteSelectedLeaf(Node node, int value) {
+        if (node.left == null && node.right == null) {
+            node = null;
+            return;
+        }
+        if (node.left != null) {
+            node = node.left;
+            return;
+        }
+        if (node.right != null) {
+            node = node.right;
+            return;
+        }
+        if (node.right.left != null) {
+            node = node.right.left;
+            return;
+        } else {
+            delete(node, value);
         }
     }
 
@@ -103,4 +95,5 @@ public class CustomBinarySearchTree {
             this.value = value;
         }
     }
+
 }
