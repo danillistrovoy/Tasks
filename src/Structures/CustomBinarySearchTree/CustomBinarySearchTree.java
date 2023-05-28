@@ -36,54 +36,70 @@ public class CustomBinarySearchTree {
         if (root == null) {
             return false;
         } else if (root.value == value) {
-            deleteSelectedLeaf(root, value);
+            root = getNodeForDelete(root);
+            return true;
         } else {
             delete(root, value);
+            return true;
         }
-        return false;
     }
 
     private boolean delete(Node node, int value) {
         if (value < node.value) {
+            if (node.left == null) {
+                return false;
+            }
             if (value == node.left.value) {
-                deleteSelectedLeaf(node.left, value);
+                node.left = getNodeForDelete(node.left);
+                return true;
             } else {
-                delete(node.left, value);
+                return delete(node.left, value);
             }
         } else {
+            if (node.right == null){
+                return false;
+            }
             if (value == node.right.value) {
-                deleteSelectedLeaf(node.right, value);
+                node.right = getNodeForDelete(node.right);
+                return true;
             } else {
-                delete(node.right, value);
+                return delete(node.right, value);
             }
         }
-        return false;
     }
 
-    private void deleteSelectedLeaf(Node node, int value) {
+    private Node getNodeForDelete(Node node) {
         if (node.left == null && node.right == null) {
-            node = null;
-            return;
+            return null;
         }
-        if (node.left != null) {
-            node = node.left;
-            return;
-        }
-        if (node.right != null) {
-            node = node.right;
-            return;
+        if (node.left != null && node.right == null) {
+            return node.left;
         }
         if (node.right.left != null) {
-            node = node.right.left;
-            return;
-        } else {
-            delete(node, value);
+            return node.right.left;
         }
+        return node.right;
     }
 
 
     public void printTree() {
 
+    }
+
+    public int checkRootValue() {
+        return root.value;
+    }
+
+    public Node checkRoot() {
+        return root;
+    }
+
+    public int checkRootRightChildValue() {
+        return root.right.value;
+    }
+
+    public int checkRootLeftChildValue() {
+        return root.left.value;
     }
 
     private static class Node {
