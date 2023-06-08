@@ -39,32 +39,51 @@ public class CustomBinarySearchTree {
             root = getNodeForDelete(root);
             return true;
         } else {
-            delete(root, value);
-            return true;
+            return delete(root, value);
         }
     }
 
     private boolean delete(Node node, int value) {
         if (value < node.value) {
-            if (node.left == null) {
-                return false;
-            }
-            if (value == node.left.value) {
-                node.left = getNodeForDelete(node.left);
-                return true;
-            } else {
+            if (value != node.left.value) {
                 return delete(node.left, value);
             }
-        } else {
-            if (node.right == null){
-                return false;
-            }
-            if (value == node.right.value) {
-                node.right = getNodeForDelete(node.right);
+            if (node.left.right == null && node.left.left == null) {
+                node.left = null;
                 return true;
-            } else {
+            }
+            if (node.left.right == null) {
+                node.left = node.left.left;
+                return true;
+            }
+            if (node.left.right.left != null) {
+                Node right = node.left.right;
+                node.left = node.left.right.left;
+                node.left.right = right;
+                return true;
+            }
+            node.left = node.left.right;
+            return true;
+        } else {
+            if (value != node.right.value) {
                 return delete(node.right, value);
             }
+            if (node.right.right == null && node.right.left == null) {
+                node.right = null;
+                return true;
+            }
+            if (node.right.right != null && node.right.right.left == null) {
+                node.right = node.right.right;
+                return true;
+            }
+            if (node.right.right.left != null && node.right.left != null) {
+                Node right = node.right.right;
+                node.right = node.right.right.left;
+                node.right.right = right;
+                return true;
+            }
+            node.right = node.right.right;
+            return true;
         }
     }
 
@@ -75,12 +94,21 @@ public class CustomBinarySearchTree {
         if (node.left != null && node.right == null) {
             return node.left;
         }
+        if (node.right.left != null && node.right.left.right == null) {
+            node.right.left.right = node.right;
+            return node.right.left;
+        }
         if (node.right.left != null) {
+            var rightChild = node.right.left.right;
+
+            while (rightChild.right != null){
+                rightChild = rightChild.right;
+            }
+            rightChild.right = node.right;
             return node.right.left;
         }
         return node.right;
     }
-
 
     public void printTree() {
 
