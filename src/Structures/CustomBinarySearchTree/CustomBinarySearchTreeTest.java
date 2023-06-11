@@ -3,86 +3,95 @@ package Structures.CustomBinarySearchTree;
 public class CustomBinarySearchTreeTest {
     public static void main(String[] args) {
         checkRootValue();
-        checkRootValueAfterRootDeleteCaseOneTest();
-        checkRootValueAfterRootDeleteCaseTwoTest();
-        checkRootValueAfterRootDeleteCaseThreeTest();
+        checkRootValueAfterDeleteWithTwoChildren();
+        checkRootValueAfterDeleteWithLeftChild();
+        checkRootValueAfterDeleteWithNoChildren();
         deleteAbsentElementTest();
+        checkRootValueAfterDeleteWithRightLeftChild();
     }
 
     static void checkRootValue() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
-        tree.insertLeaf(15);
-        tree.insertLeaf(7);
-        tree.insertLeaf(20);
-        if (tree.checkRootValue() == 15) {
+        tree.insertLeaf(15, "Bob");
+        tree.insertLeaf(7, "Mark");
+        tree.insertLeaf(20, "Joe");
+        if (tree.checkRootIndex() == 15) {
             System.out.println("insertLeafTest is ok!");
         } else {
             System.out.println("checkRootValue is not ok!!!");
         }
     }
 
-    static void checkRootValueAfterRootDeleteCaseOneTest() {
+    static void checkRootValueAfterDeleteWithTwoChildren() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
-        tree.insertLeaf(15);
-        tree.insertLeaf(7);
-        tree.insertLeaf(20);
+        tree.insertLeaf(15, "Bob");
+        tree.insertLeaf(7, "Mark");
+        tree.insertLeaf(20, "Joe");
         tree.deleteLeaf(15);
-        if (tree.checkRootValue() == 20) {
-            System.out.println("checkRootValueAfterRootDeleteTest is ok!");
+        if (tree.checkRootIndex() == 20) {
+            System.out.println("checkRootValueAfterDeleteWithTwoChildrenTest is ok!");
         } else {
-            System.out.println("checkRootValueAfterRootDeleteTest is not ok!!!");
+            System.out.println("checkRootValueAfterDeleteWithTwoChildrenTest is not ok!!!");
         }
     }
 
-    static void checkRootValueAfterRootDeleteCaseTwoTest() {
+    static void checkRootValueAfterDeleteWithLeftChild() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
-        tree.insertLeaf(15);
-        tree.insertLeaf(7);
+        tree.insertLeaf(15, "Bob");
+        tree.insertLeaf(7, "Mark");
         tree.deleteLeaf(15);
-        if (tree.checkRootValue() == 7) {
-            System.out.println("checkRootValueAfterRootDeleteCaseTwoTest is ok!");
+        if (tree.checkRootIndex() == 7) {
+            System.out.println("checkRootValueAfterDeleteWithLeftChildTest is ok!");
         } else {
-            System.out.println("checkRootValueAfterRootDeleteCaseTwoTest is not ok!!!");
+            System.out.println("checkRootValueAfterDeleteWithLeftChildTest is not ok!!!");
         }
     }
 
-    static void checkRootValueAfterRootDeleteCaseThreeTest() {
+    static void checkRootValueAfterDeleteWithNoChildren() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
-        tree.insertLeaf(15);
+        tree.insertLeaf(15, "Bob");
         tree.deleteLeaf(15);
         if (tree.checkRoot() == null) {
-            System.out.println("checkRootValueAfterRootDeleteCaseThreeTest is ok!");
+            System.out.println("checkRootValueAfterDeleteWithNoChildrenTest is ok!");
         } else {
-            System.out.println("checkRootValueAfterRootDeleteCaseThreeTest is not ok!!!");
+            System.out.println("checkRootValueAfterDeleteWithNoChildrenTest is not ok!!!");
         }
     }
 
-    static void checkRootValueAfterRootDeleteCaseFourTest() {
+    static void checkRootValueAfterDeleteWithRightLeftChild() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
-        tree.insertLeaf(15);
-        tree.insertLeaf(7);
-        tree.insertLeaf(20);
-        tree.insertLeaf(17);
+        tree.insertLeaf(15, "Bob");
+        tree.insertLeaf(7, "Mark");
+        tree.insertLeaf(20, "Joe");
+        tree.insertLeaf(17,"Tom");
         tree.deleteLeaf(15);
-        if (tree.checkRootValue() == 17 && tree.checkRootLeftChildValue() == 7 && tree.checkRootRightChildValue() == 20) {
-            System.out.println("checkRootValueAfterRootDeleteCaseFourTest is ok!");
+        if (tree.checkRootIndex() == 17 && tree.checkRootLeftChildIndex() == 7 && tree.checkRootRightChildIndex() == 20) {
+            System.out.println("checkRootValueAfterDeleteWithRightLeftChildTest is ok!");
         } else {
-            System.out.println("checkRootValueAfterRootDeleteCaseFourTest is not ok!!!");
+            System.out.println("checkRootValueAfterDeleteWithRightLeftChildTest is not ok!!!");
         }
     }
 
     static void deleteAbsentElementTest() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
         try {
-            tree.insertLeaf(15);
-            tree.insertLeaf(20);
-            tree.insertLeaf(10);
-            tree.insertLeaf(18);
-            tree.insertLeaf(17);
+            tree.insertLeaf(15, "Bob");
+            tree.insertLeaf(7, "Mark");
+            tree.insertLeaf(20, "Joe");
+            tree.insertLeaf(17,"Tom");
+            tree.insertLeaf(15,"Ryann");
             tree.deleteLeaf(16);
             System.out.println("deleteAbsentElementTest is ok!");
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("deleteAbsentElementTest is not ok!");
         }
+    }
+    static void checkTreeSum(){
+        CustomBinarySearchTree tree = new CustomBinarySearchTree();
+        tree.insertLeaf(15, "Bob");
+        tree.insertLeaf(7, "Mark");
+        tree.insertLeaf(20, "Joe");
+        tree.insertLeaf(17,"Tom");
+        tree.insertLeaf(15,"Ryann");
     }
 }

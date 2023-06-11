@@ -4,86 +4,66 @@ public class CustomBinarySearchTree {
     private Node root;
 
 
-    public void insertLeaf(int leafValue) {
+    public void insertLeaf(int leafIndex, String value) {
         if (root == null) {
-            this.root = new Node(leafValue);
+            this.root = new Node(leafIndex, value);
             return;
         }
-        insert(root, leafValue);
+        insert(root, leafIndex, value);
     }
 
-    private void insert(Node node, int leafValue) {
-        if (node.value == leafValue) {
+    private void insert(Node node, int leafIndex, String value) {
+        if (node.index == leafIndex) {
             return;
         }
-        if (leafValue < node.value) {
+        if (leafIndex < node.index) {
             if (node.left != null) {
-                insert(node.left, leafValue);
+                insert(node.left, leafIndex, value);
             } else {
-                node.left = new Node(leafValue);
+                node.left = new Node(leafIndex, value);
             }
         } else {
             if (node.right != null) {
-                insert(node.right, leafValue);
+                insert(node.right, leafIndex, value);
             } else {
-                node.right = new Node(leafValue);
+                node.right = new Node(leafIndex, value);
             }
         }
     }
 
 
-    public boolean deleteLeaf(int value) {
+    public boolean deleteLeaf(int index) {
         if (root == null) {
             return false;
-        } else if (root.value == value) {
+        } else if (root.index == index) {
             root = getNodeForDelete(root);
             return true;
         } else {
-            return delete(root, value);
+            return delete(root, index);
         }
     }
 
-    private boolean delete(Node node, int value) {
-        if (value < node.value) {
-            if (value != node.left.value) {
-                return delete(node.left, value);
+    private boolean delete(Node node, int index) {
+        if (index < node.index) {
+            if (node.left == null) {
+                return false;
             }
-            if (node.left.right == null && node.left.left == null) {
-                node.left = null;
+            if (index == node.left.index) {
+                node.left = getNodeForDelete(node.left);
                 return true;
+            } else {
+                return delete(node.left, index);
             }
-            if (node.left.right == null) {
-                node.left = node.left.left;
-                return true;
-            }
-            if (node.left.right.left != null) {
-                Node right = node.left.right;
-                node.left = node.left.right.left;
-                node.left.right = right;
-                return true;
-            }
-            node.left = node.left.right;
-            return true;
         } else {
-            if (value != node.right.value) {
-                return delete(node.right, value);
+            if (node.right == null) {
+                return false;
             }
-            if (node.right.right == null && node.right.left == null) {
-                node.right = null;
+            if (index == node.right.index) {
+                node.right = getNodeForDelete(node.right);
                 return true;
+            } else {
+                return delete(node.right, index);
             }
-            if (node.right.right != null && node.right.right.left == null) {
-                node.right = node.right.right;
-                return true;
-            }
-            if (node.right.right.left != null && node.right.left != null) {
-                Node right = node.right.right;
-                node.right = node.right.right.left;
-                node.right.right = right;
-                return true;
-            }
-            node.right = node.right.right;
-            return true;
         }
     }
 
@@ -101,7 +81,7 @@ public class CustomBinarySearchTree {
         if (node.right.left != null) {
             var rightChild = node.right.left.right;
 
-            while (rightChild.right != null){
+            while (rightChild.right != null) {
                 rightChild = rightChild.right;
             }
             rightChild.right = node.right;
@@ -114,28 +94,45 @@ public class CustomBinarySearchTree {
 
     }
 
-    public int checkRootValue() {
-        return root.value;
+    public int checkRootIndex() {
+        return root.index;
     }
 
     public Node checkRoot() {
         return root;
     }
 
-    public int checkRootRightChildValue() {
-        return root.right.value;
+    public int checkRootRightChildIndex() {
+        return root.right.index;
     }
 
-    public int checkRootLeftChildValue() {
-        return root.left.value;
+    public int checkRootLeftChildIndex() {
+        return root.left.index;
     }
 
     private static class Node {
-        int value;
+        int index;
+        String value;
         Node left;
         Node right;
 
-        public Node(int value) {
+    /*      public int RecursiveTreePass(Node node) {
+            int sum = index;
+            if (left != null) {
+                sum += left.index;
+                left.RecursiveTreePass(left);
+            }
+            if (right != null){
+                sum += right.index;
+                right.RecursiveTreePass(right);
+            }
+            return sum;
+        }
+
+     */
+
+        public Node(int index, String value) {
+            this.index = index;
             this.value = value;
         }
     }
