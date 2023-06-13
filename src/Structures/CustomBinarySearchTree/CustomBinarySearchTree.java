@@ -71,27 +71,38 @@ public class CustomBinarySearchTree {
     }
 
     private Node getNodeForDelete(Node node) {
+        // 1. нет детей => null
         if (node.left == null && node.right == null) {
             return null;
         }
+        // 2.1 только левый ребёнок => левый ребёнок
         if (node.left != null && node.right == null) {
             return node.left;
         }
-        if (node.right.left != null && node.right.left.right == null) {
-            node.right.left.right = node.right;
-            node.right.left.left = node.left;
-            return node.right.left;
+        // 3. есть 2 ребёнка
 
-        }
-        if (node.right.left != null) {
-            var rightChild = node.right.left.right;
+//        Node nodeRightLeft = node.right.left;
+//        if (nodeRightLeft != null) {
+//
+//            var leftChild = nodeRightLeft;
+//            var prev = node.right;
+//
+//            if (leftChild.left != null) {
+//                while (leftChild.left != null) {
+//                    prev = leftChild;
+//                    leftChild = leftChild.left;
+//                }
+//            }
+//
+//            prev.left = leftChild.right == null ? null : leftChild.right;
+//
+//            leftChild.right = node.right;
+//            leftChild.left = node.left;
 
-            while (rightChild.right != null) {
-                rightChild = rightChild.right;
-            }
-            rightChild.right = node.right;
-            return node.right.left;
-        }
+//            return leftChild;
+//        }
+
+        // 2.2 только правый ребёнок => правый ребёнок (!!!теряется ссылка на левого ребёнка!!!)
         return node.right;
     }
 
