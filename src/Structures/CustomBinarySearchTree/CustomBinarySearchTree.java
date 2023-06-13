@@ -1,5 +1,8 @@
 package Structures.CustomBinarySearchTree;
 
+import java.util.List;
+import java.util.Stack;
+
 public class CustomBinarySearchTree {
     private Node root;
 
@@ -76,7 +79,9 @@ public class CustomBinarySearchTree {
         }
         if (node.right.left != null && node.right.left.right == null) {
             node.right.left.right = node.right;
+            node.right.left.left = node.left;
             return node.right.left;
+
         }
         if (node.right.left != null) {
             var rightChild = node.right.left.right;
@@ -91,7 +96,18 @@ public class CustomBinarySearchTree {
     }
 
     public void printTree() {
-
+        Stack<Node> tree = new Stack<>();
+        tree.push(this.root);
+        while (!tree.isEmpty()) {
+            Node node = tree.pop();
+            System.out.println(node.index);
+            if (node.right != null) {
+                tree.push(node.right);
+            }
+            if (node.left != null) {
+                tree.push(node.left);
+            }
+        }
     }
 
     public int checkRootIndex() {
@@ -110,26 +126,13 @@ public class CustomBinarySearchTree {
         return root.left.index;
     }
 
+
     private static class Node {
         int index;
         String value;
         Node left;
         Node right;
 
-    /*      public int RecursiveTreePass(Node node) {
-            int sum = index;
-            if (left != null) {
-                sum += left.index;
-                left.RecursiveTreePass(left);
-            }
-            if (right != null){
-                sum += right.index;
-                right.RecursiveTreePass(right);
-            }
-            return sum;
-        }
-
-     */
 
         public Node(int index, String value) {
             this.index = index;

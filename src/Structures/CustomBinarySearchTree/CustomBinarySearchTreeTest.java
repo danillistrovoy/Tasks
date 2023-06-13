@@ -2,12 +2,7 @@ package Structures.CustomBinarySearchTree;
 
 public class CustomBinarySearchTreeTest {
     public static void main(String[] args) {
-        checkRootValue();
-        checkRootValueAfterDeleteWithTwoChildren();
-        checkRootValueAfterDeleteWithLeftChild();
-        checkRootValueAfterDeleteWithNoChildren();
-        deleteAbsentElementTest();
-        checkRootValueAfterDeleteWithRightLeftChild();
+        printTest();
     }
 
     static void checkRootValue() {
@@ -64,6 +59,7 @@ public class CustomBinarySearchTreeTest {
         tree.insertLeaf(7, "Mark");
         tree.insertLeaf(20, "Joe");
         tree.insertLeaf(17,"Tom");
+        tree.insertLeaf(16,"Jay");
         tree.deleteLeaf(15);
         if (tree.checkRootIndex() == 17 && tree.checkRootLeftChildIndex() == 7 && tree.checkRootRightChildIndex() == 20) {
             System.out.println("checkRootValueAfterDeleteWithRightLeftChildTest is ok!");
@@ -85,13 +81,5 @@ public class CustomBinarySearchTreeTest {
         } catch (NullPointerException e) {
             System.out.println("deleteAbsentElementTest is not ok!");
         }
-    }
-    static void checkTreeSum(){
-        CustomBinarySearchTree tree = new CustomBinarySearchTree();
-        tree.insertLeaf(15, "Bob");
-        tree.insertLeaf(7, "Mark");
-        tree.insertLeaf(20, "Joe");
-        tree.insertLeaf(17,"Tom");
-        tree.insertLeaf(15,"Ryann");
     }
 }
