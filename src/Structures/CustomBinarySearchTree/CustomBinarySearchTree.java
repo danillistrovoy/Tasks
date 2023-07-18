@@ -1,7 +1,6 @@
 package Structures.CustomBinarySearchTree;
 
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class CustomBinarySearchTree {
     private Node root;
@@ -71,55 +70,50 @@ public class CustomBinarySearchTree {
     }
 
     private Node getNodeForDelete(Node node) {
-        // 1. нет детей => null
         if (node.left == null && node.right == null) {
             return null;
         }
-        // 2.1 только левый ребёнок => левый ребёнок
         if (node.left != null && node.right == null) {
             return node.left;
         }
-        // 3. есть 2 ребёнка
+        Node nodeRightLeft = node.right.left;
+        if (nodeRightLeft != null) {
 
-//        Node nodeRightLeft = node.right.left;
-//        if (nodeRightLeft != null) {
-//
-//            var leftChild = nodeRightLeft;
-//            var prev = node.right;
-//
-//            if (leftChild.left != null) {
-//                while (leftChild.left != null) {
-//                    prev = leftChild;
-//                    leftChild = leftChild.left;
-//                }
-//            }
-//
-//            prev.left = leftChild.right == null ? null : leftChild.right;
-//
-//            leftChild.right = node.right;
-//            leftChild.left = node.left;
+            Node leftChild = nodeRightLeft;
+            Node prev = node.right;
 
-//            return leftChild;
-//        }
+            if (leftChild.left != null) {
+                while (leftChild.left != null) {
+                    prev = leftChild;
+                    leftChild = leftChild.left;
+                }
+            }
+            prev.left = leftChild.right == null ? null : leftChild.right;
 
-        // 2.2 только правый ребёнок => правый ребёнок (!!!теряется ссылка на левого ребёнка!!!)
+            leftChild.right = node.right;
+            leftChild.left = node.left;
+
+            return leftChild;
+        }
+        node.right.left = node.left;
         return node.right;
     }
 
     public void printTree() {
-        Stack<Node> tree = new Stack<>();
-        tree.push(this.root);
+        Queue<Node> tree = new LinkedList<>();
+        tree.add(this.root);
         while (!tree.isEmpty()) {
-            Node node = tree.pop();
-            System.out.println(node.index);
-            if (node.right != null) {
-                tree.push(node.right);
-            }
+            Node node = tree.remove();
+            System.out.println("\t\t\t\t" + node.index);
             if (node.left != null) {
-                tree.push(node.left);
+                tree.add(node.left);
+            }
+            if (node.right != null) {
+                tree.add(node.right);
             }
         }
     }
+
 
     public int checkRootIndex() {
         return root.index;
