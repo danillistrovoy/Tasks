@@ -2,7 +2,12 @@ package Structures.CustomBinarySearchTree;
 
 public class CustomBinarySearchTreeTest {
     public static void main(String[] args) {
-        printTreeTest();
+        checkRootValue();
+        checkRootValueAfterDeleteWithTwoChildren();
+        checkRootValueAfterDeleteWithLeftChild();
+        checkNodeValueAfterDeleteWithNoChildren();
+        checkNodeValueAfterDeleteWithRightLeftChild();
+
     }
 
     static void checkRootValue() {
@@ -10,7 +15,7 @@ public class CustomBinarySearchTreeTest {
         tree.insertLeaf(15, "Bob");
         tree.insertLeaf(7, "Mark");
         tree.insertLeaf(20, "Joe");
-        if (tree.checkRootIndex() == 15) {
+        if (tree.toString().equals("Tree {  index : 15 index : 7 index : 20 }")) {
             System.out.println("insertLeafTest is ok!");
         } else {
             System.out.println("checkRootValue is not ok!!!");
@@ -23,7 +28,7 @@ public class CustomBinarySearchTreeTest {
         tree.insertLeaf(7, "Mark");
         tree.insertLeaf(20, "Joe");
         tree.deleteLeaf(15);
-        if (tree.checkRootIndex() == 20) {
+        if (tree.toString().equals("Tree {  index : 20 index : 7 }")) {
             System.out.println("checkRootValueAfterDeleteWithTwoChildrenTest is ok!");
         } else {
             System.out.println("checkRootValueAfterDeleteWithTwoChildrenTest is not ok!!!");
@@ -34,34 +39,43 @@ public class CustomBinarySearchTreeTest {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
         tree.insertLeaf(15, "Bob");
         tree.insertLeaf(7, "Mark");
+        tree.insertLeaf(5,"Shad");
+        tree.insertLeaf(10,"Dock");
         tree.deleteLeaf(15);
-        if (tree.checkRootIndex() == 7) {
+        if (tree.toString().equals("Tree {  index : 7 index : 5 index : 10 }")) {
             System.out.println("checkRootValueAfterDeleteWithLeftChildTest is ok!");
         } else {
             System.out.println("checkRootValueAfterDeleteWithLeftChildTest is not ok!!!");
         }
     }
 
-    static void checkRootValueAfterDeleteWithNoChildren() {
+    static void checkNodeValueAfterDeleteWithNoChildren() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
         tree.insertLeaf(15, "Bob");
         tree.deleteLeaf(15);
-        if (tree.checkRoot() == null) {
+        if (tree.toString().equals("Tree { null }")) {
             System.out.println("checkRootValueAfterDeleteWithNoChildrenTest is ok!");
         } else {
             System.out.println("checkRootValueAfterDeleteWithNoChildrenTest is not ok!!!");
         }
     }
 
-    static void checkRootValueAfterDeleteWithRightLeftChild() {
+
+
+
+    static void checkNodeValueAfterDeleteWithRightLeftChild() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
-        tree.insertLeaf(15, "Bob");
-        tree.insertLeaf(7, "Mark");
-        tree.insertLeaf(20, "Joe");
-        tree.insertLeaf(17,"Tom");
-        tree.insertLeaf(16,"Jay");
-        tree.deleteLeaf(15);
-        if (tree.checkRootIndex() == 16 && tree.checkRootLeftChildIndex() == 7 && tree.checkRootRightChildIndex() == 20) {
+        tree.insertLeaf(15, "A");
+        tree.insertLeaf(7, "B");
+        tree.insertLeaf(20, "C");
+        tree.insertLeaf(17,"D");
+        tree.insertLeaf(16,"E");
+        tree.insertLeaf(5,"F");
+        tree.insertLeaf(10,"G");
+        tree.insertLeaf(13,"H");
+        tree.insertLeaf(11,"I");
+        tree.deleteLeaf(10);
+        if (tree.toString().equals("Tree {  index : 15 index : 7 index : 5 index : 11 index : 13 index : 20 index : 17 index : 16 }")) {
             System.out.println("checkRootValueAfterDeleteWithRightLeftChildTest is ok!");
         } else {
             System.out.println("checkRootValueAfterDeleteWithRightLeftChildTest is not ok!!!");
@@ -82,10 +96,15 @@ public class CustomBinarySearchTreeTest {
             System.out.println("deleteAbsentElementTest is not ok!");
         }
     }
+
+
+
     static void printTreeTest(){
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
         tree.insertLeaf(15, "Bob");
         tree.insertLeaf(7, "Mark");
+        tree.insertLeaf(10,"ad");
+        tree.insertLeaf(5, "shad");
         tree.insertLeaf(20, "Joe");
         tree.insertLeaf(17,"Tom");
         tree.insertLeaf(21,"Sha");

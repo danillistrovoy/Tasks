@@ -114,23 +114,12 @@ public class CustomBinarySearchTree {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Tree { " +
+                root+" }";
 
-    public int checkRootIndex() {
-        return root.index;
     }
-
-    public Node checkRoot() {
-        return root;
-    }
-
-    public int checkRootRightChildIndex() {
-        return root.right.index;
-    }
-
-    public int checkRootLeftChildIndex() {
-        return root.left.index;
-    }
-
 
     private static class Node {
         int index;
@@ -138,6 +127,12 @@ public class CustomBinarySearchTree {
         Node left;
         Node right;
 
+        @Override
+        public String toString() {
+            var leftString = left != null ? left.toString() : "";
+            var rightString = right != null ? right.toString() : "";
+            return " index : " + index +  leftString +  rightString;
+        }
 
         public Node(int index, String value) {
             this.index = index;

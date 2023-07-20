@@ -1,12 +1,12 @@
 package Structures.CustomQueue;
 
 public class CustomQueue {
-    private int[] array;
+    private final int[] array;
     private int front;
     private int back;
 
-    public CustomQueue(int sizeOfArray) {
-        array = new int[sizeOfArray];
+    public CustomQueue() {
+        array = new int[1000];
         back = -1;
         front = -1;
     }

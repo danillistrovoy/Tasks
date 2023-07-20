@@ -12,7 +12,7 @@ public class CustomQueueTest {
     }
 
     static void isEmptyTest() {
-        CustomQueue queue = new CustomQueue(5);
+        CustomQueue queue = new CustomQueue();
         queue.enqueue(10);
         queue.dequeue();
         if (queue.isEmpty()) {
@@ -23,7 +23,7 @@ public class CustomQueueTest {
     }
 
     static void enqueueTest() {
-        CustomQueue queue = new CustomQueue(3);
+        CustomQueue queue = new CustomQueue();
         queue.enqueue(5);
         queue.enqueue(10);
         if (queue.getSize() == 2 && queue.top() == 5) {
@@ -34,7 +34,7 @@ public class CustomQueueTest {
     }
 
     static void dequeueTest() {
-        CustomQueue queue = new CustomQueue(4);
+        CustomQueue queue = new CustomQueue();
         queue.enqueue(10);
         int expected = 10;
         int actual = queue.dequeue();
@@ -46,7 +46,7 @@ public class CustomQueueTest {
     }
 
     static void topTest() {
-        CustomQueue queue = new CustomQueue(4);
+        CustomQueue queue = new CustomQueue();
         queue.enqueue(15);
         queue.enqueue(20);
         int expectedSize = 2;
@@ -61,7 +61,7 @@ public class CustomQueueTest {
     }
 
     static void enqueueElementIntoFullQueue() {
-        CustomQueue queue = new CustomQueue(3);
+        CustomQueue queue = new CustomQueue();
         try {
             queue.enqueue(10);
             queue.enqueue(10);
@@ -74,7 +74,7 @@ public class CustomQueueTest {
     }
 
     static void dequeueElementFromEmptyQueue() {
-        CustomQueue queue = new CustomQueue(3);
+        CustomQueue queue = new CustomQueue();
         try {
             queue.dequeue();
             System.out.println("dequeueElementInEmptyQueueTest is not ok!");
@@ -84,7 +84,7 @@ public class CustomQueueTest {
     }
 
     static void getSizeTest() {
-        CustomQueue queue = new CustomQueue(5);
+        CustomQueue queue = new CustomQueue();
         queue.enqueue(5);
         queue.enqueue(5);
         queue.dequeue();
