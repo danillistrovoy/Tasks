@@ -1,12 +1,12 @@
 package Structures.CustomQueue;
 
-public class CustomQueue {
-    private final int[] array;
+public class CustomQueue<T> {
+    private final T[] array;
     private int front;
     private int back;
 
     public CustomQueue() {
-        array = new int[1000];
+        array = new T[1000];
         back = -1;
         front = -1;
     }
@@ -15,7 +15,7 @@ public class CustomQueue {
         return back - front == 0;
     }
 
-    public void enqueue(int data) {
+    public void enqueue(T data) {
         if (back != array.length - 1) {
             back++;
             array[back] = data;
@@ -24,7 +24,7 @@ public class CustomQueue {
         }
     }
 
-    public int dequeue() {
+    public T dequeue() {
         if (isEmpty()) {
             throw new IndexOutOfBoundsException("Array is empty");
         } else {
@@ -32,7 +32,7 @@ public class CustomQueue {
         }
     }
 
-    public int top() {
+    public T top() {
         if (isEmpty()) {
             throw new IndexOutOfBoundsException("Array is empty");
         } else {

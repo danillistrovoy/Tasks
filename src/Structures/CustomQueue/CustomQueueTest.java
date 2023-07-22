@@ -37,7 +37,7 @@ public class CustomQueueTest {
         CustomQueue queue = new CustomQueue();
         queue.enqueue(10);
         int expected = 10;
-        int actual = queue.dequeue();
+        var actual = queue.dequeue();
         if (queue.isEmpty() && expected == actual) {
             System.out.println("dequeueTest is ok!");
         } else {
@@ -51,8 +51,8 @@ public class CustomQueueTest {
         queue.enqueue(20);
         int expectedSize = 2;
         int actualSize = queue.getSize();
-        int expected = 15;
-        int actual = queue.top();
+        var expected = 15;
+        var actual = queue.top();
         if (actual == expected && expectedSize == actualSize) {
             System.out.println("topTest is ok!");
         } else {
