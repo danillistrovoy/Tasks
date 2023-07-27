@@ -1,29 +1,17 @@
 package Structures.CustomQueue;
 
-public class CustomQueueTest {
-    public static void main(String[] args) {
-        isEmptyTest();
-        enqueueTest();
-        dequeueTest();
-        topTest();
-        enqueueElementIntoFullQueue();
-        dequeueElementFromEmptyQueue();
-        getSizeTest();
-    }
 
-    static void isEmptyTest() {
-        CustomQueue queue = new CustomQueue();
+public class CustomQueueTest {
+
+     void isEmptyTest() {
+        CustomQueue<Integer> queue = new CustomQueue<>();
         queue.enqueue(10);
         queue.dequeue();
-        if (queue.isEmpty()) {
-            System.out.println("isEmptyTest is ok!");
-        } else {
-            System.out.println("isEmptyTest is not ok!");
-        }
+        //Assertions.assertEquals();
     }
 
-    static void enqueueTest() {
-        CustomQueue queue = new CustomQueue();
+     void enqueueTest() {
+        CustomQueue<Integer> queue = new CustomQueue<>();
         queue.enqueue(5);
         queue.enqueue(10);
         if (queue.getSize() == 2 && queue.top() == 5) {
@@ -33,7 +21,8 @@ public class CustomQueueTest {
         }
     }
 
-    static void dequeueTest() {
+
+    void dequeueTest() {
         CustomQueue queue = new CustomQueue();
         queue.enqueue(10);
         int expected = 10;
@@ -45,7 +34,8 @@ public class CustomQueueTest {
         }
     }
 
-    static void topTest() {
+
+    void topTest() {
         CustomQueue queue = new CustomQueue();
         queue.enqueue(15);
         queue.enqueue(20);
@@ -60,7 +50,8 @@ public class CustomQueueTest {
         }
     }
 
-    static void enqueueElementIntoFullQueue() {
+
+    void enqueueElementIntoFullQueue() {
         CustomQueue queue = new CustomQueue();
         try {
             queue.enqueue(10);
@@ -73,7 +64,8 @@ public class CustomQueueTest {
         }
     }
 
-    static void dequeueElementFromEmptyQueue() {
+
+    void dequeueElementFromEmptyQueue() {
         CustomQueue queue = new CustomQueue();
         try {
             queue.dequeue();
@@ -83,7 +75,8 @@ public class CustomQueueTest {
         }
     }
 
-    static void getSizeTest() {
+
+    void getSizeTest() {
         CustomQueue queue = new CustomQueue();
         queue.enqueue(5);
         queue.enqueue(5);

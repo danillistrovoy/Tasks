@@ -1,12 +1,14 @@
 package Structures.CustomQueue;
 
+import Structures.CustomArrayList.CustomArrayList;
+
 public class CustomQueue<T> {
-    private final T[] array;
+    private final CustomArrayList[] array;
     private int front;
     private int back;
 
     public CustomQueue() {
-        array = new T[1000];
+        array = new CustomArrayList[10];
         back = -1;
         front = -1;
     }
@@ -15,7 +17,7 @@ public class CustomQueue<T> {
         return back - front == 0;
     }
 
-    public void enqueue(T data) {
+    public void enqueue(Object data) {
         if (back != array.length - 1) {
             back++;
             array[back] = data;
@@ -24,7 +26,7 @@ public class CustomQueue<T> {
         }
     }
 
-    public T dequeue() {
+    public int dequeue() {
         if (isEmpty()) {
             throw new IndexOutOfBoundsException("Array is empty");
         } else {
@@ -32,7 +34,7 @@ public class CustomQueue<T> {
         }
     }
 
-    public T top() {
+    public int top() {
         if (isEmpty()) {
             throw new IndexOutOfBoundsException("Array is empty");
         } else {

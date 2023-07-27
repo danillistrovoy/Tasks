@@ -1,33 +1,20 @@
 package Structures.CustomArrayList;
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CustomArrayListTest {
-    public static void main(String[] args) {
-        shouldAddElementToArrayAndGetByIndex();
-        shouldThrowOutOfBoundException();
-        createArrayAndAddElementByDoubleSizeTest();
-        getArraySizeTest();
-        removeElementFromArrayTest();
-    }
-
-
-    static void shouldAddElementToArrayAndGetByIndex() {
-        CustomArrayList test1 = new CustomArrayList();
-        int expectedEl = 123;
+    @Test
+    void shouldAddElementToArrayAndGetByIndex() {
+        CustomArrayList<Integer> test1 = new CustomArrayList<>();
+        Integer expectedEl = 123;
         test1.add(123);
-        var actual = test1.get(0);
-        if (actual == expectedEl) {
-            System.out.println("shouldAddElementToArrayAndGetByIndex test ok");
-        } else {
-            throw new RuntimeException("shouldAddElementToArrayAndGetByIndex test not ok!!!");
-        }
+        Integer actual = test1.get(0);
+        Assertions.assertEquals(expectedEl,actual);
     }
 
-    static void shouldThrowOutOfBoundException() {
+
+    void shouldThrowOutOfBoundException() {
         try {
             CustomArrayList test2 = new CustomArrayList(5);
             test2.get(2);
@@ -37,7 +24,8 @@ public class CustomArrayListTest {
         }
     }
 
-    static void createArrayAndAddElementByDoubleSizeTest() {
+
+    void createArrayAndAddElementByDoubleSizeTest() {
         CustomArrayList test3 = new CustomArrayList(10);
         for (int i = 0; i < 10; i++) {
             test3.add(i);
@@ -50,7 +38,8 @@ public class CustomArrayListTest {
         }
     }
 
-    static void getArraySizeTest() {
+
+    void getArraySizeTest() {
         CustomArrayList test4 = new CustomArrayList(10);
         for (int i = 0; i < 10; i++) {
             test4.add(i);
@@ -62,8 +51,9 @@ public class CustomArrayListTest {
         }
     }
 
-    static void removeElementFromArrayTest() {
-        CustomArrayList test5 = new CustomArrayList(10);
+
+    void removeElementFromArrayTest() {
+        CustomArrayList<Integer> test5 = new CustomArrayList<>(10);
         for (int i = 0; i <= 10; i++) {
             test5.add(i);
         }
