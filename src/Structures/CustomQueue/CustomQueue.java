@@ -3,12 +3,12 @@ package Structures.CustomQueue;
 import Structures.CustomArrayList.CustomArrayList;
 
 public class CustomQueue<T> {
-    private final CustomArrayList[] array;
+    private final CustomArrayList<T> array;
     private int front;
     private int back;
 
     public CustomQueue() {
-        array = new CustomArrayList[10];
+        array = new CustomArrayList<T>();
         back = -1;
         front = -1;
     }
@@ -17,28 +17,31 @@ public class CustomQueue<T> {
         return back - front == 0;
     }
 
-    public void enqueue(Object data) {
-        if (back != array.length - 1) {
+    public void enqueue(T data) {
+        if (back != array.length() - 1) {
             back++;
-            array[back] = data;
+            array.add(data,back);
         } else {
             throw new ArrayIndexOutOfBoundsException();
         }
     }
 
-    public int dequeue() {
+    public T dequeue() {
         if (isEmpty()) {
             throw new IndexOutOfBoundsException("Array is empty");
         } else {
-            return array[++front];
+            int index = ++front;
+            var el = array.get(index);
+            array.remove(index);
+            return el;
         }
     }
 
-    public int top() {
+    public T top() {
         if (isEmpty()) {
             throw new IndexOutOfBoundsException("Array is empty");
         } else {
-            return array[front + 1];
+            return array.get(front+1);
         }
     }
 

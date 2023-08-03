@@ -18,6 +18,7 @@ public class CustomArrayList<T> {
     public void add(T el) {
         if (size >= array.length) {
             Object[] newArray = new Object[size * 2];
+            System.arraycopy(array, 0, newArray, 0, size);
             this.array = newArray;
         }
         array[size] = el;
@@ -46,11 +47,14 @@ public class CustomArrayList<T> {
 
     public void remove(int index) {
         for (int i = index; i <= size; i++) {
-                array[i] = array[i + 1];
-            }
-        size--;
+            array[i] = array[i + 1];
         }
+        size--;
+    }
 
+    public int length() {
+        return this.array.length;
+    }
 
     public CustomArrayList() {
         array = new Object[10];
