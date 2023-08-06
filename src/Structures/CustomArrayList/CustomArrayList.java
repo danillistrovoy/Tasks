@@ -18,7 +18,6 @@ public class CustomArrayList<T> {
     public void add(T el) {
         if (size >= array.length) {
             Object[] newArray = new Object[size * 2];
-            System.arraycopy(array, 0, newArray, 0, size);
             this.array = newArray;
         }
         array[size] = el;
@@ -27,6 +26,7 @@ public class CustomArrayList<T> {
 
     public void add(T el, int index) {
         array[index] = el;
+        size++;
     }
 
     public T get(int index) {
