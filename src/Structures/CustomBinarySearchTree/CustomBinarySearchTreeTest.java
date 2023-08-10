@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CustomBinarySearchTreeTest {
+    public static void main(String[] args) {
+        printTreeTest();
+    }
     @Test
     void checkRootValue() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
@@ -61,20 +64,17 @@ public class CustomBinarySearchTreeTest {
     }
 
 
-    //Пока не понимаю как использовать JUnit в тестах с try-catch
-    static void deleteAbsentElementTest() {
+    @Test
+     void deleteAbsentElementTest() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
-        try {
             tree.insertLeaf(15, "Bob");
             tree.insertLeaf(7, "Mark");
             tree.insertLeaf(20, "Joe");
             tree.insertLeaf(17, "Tom");
             tree.insertLeaf(15, "Ryann");
-            tree.deleteLeaf(16);
-            System.out.println("deleteAbsentElementTest is ok!");
-        } catch (NullPointerException e) {
-            System.out.println("deleteAbsentElementTest is not ok!");
-        }
+            boolean actual = tree.deleteLeaf(16);
+        Assertions.assertFalse(actual);
+
     }
 
 

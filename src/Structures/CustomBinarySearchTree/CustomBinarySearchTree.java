@@ -104,7 +104,7 @@ public class CustomBinarySearchTree {
         tree.add(this.root);
         while (!tree.isEmpty()) {
             Node node = tree.remove();
-            System.out.println("\t\t\t\t" + node.index);
+            System.out.println("\n" + node.index);
             if (node.left != null) {
                 tree.add(node.left);
             }

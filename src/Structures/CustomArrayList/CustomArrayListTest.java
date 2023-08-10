@@ -13,20 +13,17 @@ public class CustomArrayListTest {
         Assertions.assertEquals(expectedEl,actual);
     }
 
-
+    @Test
     void shouldThrowOutOfBoundException() {
-        try {
-            CustomArrayList test2 = new CustomArrayList(5);
-            test2.get(2);
-            System.out.println("shouldThrowOutOfBoundException test not ok!!!");
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("shouldThrowOutOfBoundException test ok!!!");
-        }
+            Assertions.assertThrows(IndexOutOfBoundsException.class, () ->{
+                CustomArrayList test2 = new CustomArrayList(5);
+                test2.get(2);
+                    });
     }
 
     @Test
     void createArrayAndAddElementByDoubleSizeTest() {
-        CustomArrayList<Integer> test3 = new CustomArrayList<Integer>(10);
+        CustomArrayList<Integer> test3 = new CustomArrayList<>(10);
         for (int i = 0; i <= 10; i++) {
             test3.add(i);
         }
