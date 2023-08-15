@@ -17,7 +17,7 @@ public class CustomHashMap {
         this.size = 0;
     }
 
-    private class HashNode {
+    private static class HashNode {
         private final Integer key;
         private String value;
         private HashNode next;

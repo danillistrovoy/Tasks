@@ -1,113 +1,85 @@
 package Structures.CustomLinkedList;
 
-import java.util.concurrent.Callable;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CustomLinkedListTest {
-    public static void main(String[] args) {
-        insertElementAtHeadTest();
-        insertElementAtEndTest();
-        deleteElementByIndexTest();
-        deleteFromHeadTest();
-        searchElementTest();
-        isEmptyTest();
-        deleteFromEndTest();
-        insertByIndexTest();
-    }
-
-    static void insertElementAtHeadTest() {
-        CustomLinkedList test = new CustomLinkedList();
+    @Test
+    void insertElementAtHeadTest() {
+        CustomLinkedList<Integer> test = new CustomLinkedList<>();
         test.insertAtHead(15);
         test.insertAtHead(20);
-        if (test.search(0) == 20) {
-            System.out.println("insertElementAtHeadTest is ok!");
-        } else {
-            System.out.println("insertElementAtHeadTest is not ok !");
-        }
+        Assertions.assertEquals(20, test.search(0));
     }
 
-    static void insertElementAtEndTest() {
-        CustomLinkedList test2 = new CustomLinkedList();
+    @Test
+    void insertElementAtEndTest() {
+        CustomLinkedList<Integer> test2 = new CustomLinkedList<>();
         test2.insertAtHead(5);
         test2.insertAtHead(10);
         test2.insertAtEnd(20);
-        if (test2.search(2) == 20) {
-            System.out.println("insertElementAtEndTest is ok!");
-        } else {
-            System.out.println("insertElementAtEndTest is not ok !");
-        }
+        Assertions.assertEquals(20, test2.search(2));
     }
 
-    static void deleteElementByIndexTest() {
-        CustomLinkedList test3 = new CustomLinkedList();
+    @Test
+    void deleteElementByIndexTest() {
+        CustomLinkedList<Integer> test3 = new CustomLinkedList<>();
         test3.insertAtHead(10);
         test3.insertAtHead(15);
         test3.insertAtHead(20);
         test3.deleteByIndex(1);
-        if (test3.size() == 2 && test3.search(1) == 10) {
-            System.out.println("deleteElementByIndexTest is ok!");
-        } else {
-            System.out.println("deleteElementByIndexTest is not ok!");
-        }
+        Assertions.assertEquals(2, test3.size());
+        Assertions.assertEquals(10, test3.search(1));
     }
 
-    static void deleteFromHeadTest() {
-        CustomLinkedList test4 = new CustomLinkedList();
+    @Test
+    void deleteFromHeadTest() {
+        CustomLinkedList<Integer> test4 = new CustomLinkedList<>();
         test4.insertAtHead(5);
         test4.insertAtHead(10);
         test4.insertAtEnd(20);
         test4.deleteFromHead();
-        if (test4.size() == 2 && test4.search(0) == 5) {
-            System.out.println("deleteFromHeadTest is ok!");
-        } else {
-            System.out.println("deleteFromHeadTest is not ok!");
-        }
+        Assertions.assertEquals(2,test4.size());
+        Assertions.assertEquals(5,test4.search(0));
     }
 
-    static void searchElementTest() {
-        CustomLinkedList test5 = new CustomLinkedList();
+
+    @Test
+    void searchElementTest() {
+        CustomLinkedList<Integer> test5 = new CustomLinkedList<>();
         test5.insertAtHead(5);
         test5.insertAtHead(10);
         test5.insertAtEnd(20);
         int expected = 20;
         int actual = test5.search(2);
-        if (expected == actual) {
-            System.out.println("searchElementTest is ok");
-        } else {
-            System.out.println("searchElementTest is not ok");
-        }
+        Assertions.assertEquals(expected, actual);
     }
 
-    static void isEmptyTest() {
-        CustomLinkedList test6 = new CustomLinkedList();
-        test6.insertAtHead(2);
-        if (test6.isEmpty()) {
-            System.out.println("isEmptyTest is not ok!");
-        } else {
-            System.out.println("isEmptyTest is ok!");
-        }
+    @Test
+    void isEmptyTest() {
+        CustomLinkedList<Integer> test6 = new CustomLinkedList<>();
+        Assertions.assertTrue(test6.isEmpty());
     }
 
-    static void deleteFromEndTest() {
-        CustomLinkedList test7 = new CustomLinkedList();
+    @Test
+    void deleteFromEndTest() {
+        CustomLinkedList<Integer> test7 = new CustomLinkedList<>();
         test7.insertAtHead(10);
         test7.insertAtEnd(15);
         test7.deleteFromEnd();
-        if (test7.size() == 1 && test7.search(0) == 10) {
-            System.out.println("deleteFromEndTest is ok!");
-        } else {
-            System.out.println("deleteFromEndTest is not ok!");
-        }
+        Assertions.assertEquals(1, test7.size());
+        Assertions.assertEquals(10, test7.search(0));
     }
 
-    static void insertByIndexTest() {
-        CustomLinkedList test8 = new CustomLinkedList();
+    @Test
+    void insertByIndexTest() {
+        CustomLinkedList<Integer> test8 = new CustomLinkedList<>();
         test8.insertAtHead(10);
         test8.insertByIndex(5, 1);
-        if (test8.size() == 2 && test8.search(1) == 5 && test8.search(0) == 10) {
-            System.out.println("insertByIndexTest is ok!");
-        } else {
-            System.out.println("insertByIndexTest is not ok!");
-        }
+        Assertions.assertEquals(2, test8.size());
+        Assertions.assertEquals(5, test8.search(1));
+        Assertions.assertEquals(10, test8.search(0));
     }
+
 }
 

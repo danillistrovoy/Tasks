@@ -2,8 +2,8 @@ package Structures.CustomLinkedList;
 
 import java.util.LinkedList;
 
-public class CustomLinkedList {
-    private Link head;
+public class CustomLinkedList<T> {
+    private Link<T> head;
     private int size;
 
     public CustomLinkedList() {
@@ -15,14 +15,14 @@ public class CustomLinkedList {
         return head == null;
     }
 
-    public void insertAtHead(int data) {
+    public void insertAtHead(T data) {
         if (head == null) {
-            Link newLink = new Link(null, data, null);
+            Link<T> newLink = new Link<>(null, data, null);
             head = newLink;
             head.prev = head;
             head.next = head;
         } else {
-            Link newLink = new Link(head.prev, data, head);
+            Link<T> newLink = new Link<>(head.prev, data, head);
             head.prev = newLink;
             head = newLink;
             head.prev.next = head;
@@ -30,13 +30,13 @@ public class CustomLinkedList {
         size++;
     }
 
-    public void insertAtEnd(int data) {
+    public void insertAtEnd(T data) {
         if (head == null) {
-            head = new Link(null, data, null);
+            head = new Link<T>(null, data, null);
             head.prev = head;
             head.next = head;
         } else {
-            Link newLink = new Link(head.prev, data, head);
+            Link<T> newLink = new Link<>(head.prev, data, head);
             head.prev = newLink;
             head.prev.prev.next = newLink;
             head.prev.next = head;
@@ -74,7 +74,7 @@ public class CustomLinkedList {
         size--;
     }
 
-    public void insertByIndex(int data, int index) {
+    public void insertByIndex(T data, int index) {
         if (head == null) {
             return;
         }
@@ -82,26 +82,26 @@ public class CustomLinkedList {
             throw new IndexOutOfBoundsException("Введен некорректный индекс");
         }
         if (size == 1 && index == 1) {
-            Link newLink = new Link(head, data, head);
+            Link<T> newLink = new Link<>(head, data, head);
             head.next = newLink;
             head.prev = newLink;
             head.prev.next = head;
             size++;
             return;
         }
-        Link current = head;
+        Link<T> current = head;
         int i = 0;
         while (i < index) {
             current = current.next;
             i++;
         }
         if (current == head) {
-            Link newLink = new Link(head.prev, data, current);
+            Link<T> newLink = new Link<>(head.prev, data, current);
             current.prev = newLink;
             head = newLink;
             head.prev.next = head;
         } else {
-            Link newLink = new Link(current.prev, data, current);
+            Link<T> newLink = new Link<>(current.prev, data, current);
             current.prev.next = newLink;
             current.prev = newLink;
         }
@@ -117,7 +117,7 @@ public class CustomLinkedList {
             size--;
             return;
         }
-        Link current = head;
+        Link<T> current = head;
         int i = 0;
         while (i < index) {
             current = current.next;
@@ -137,15 +137,18 @@ public class CustomLinkedList {
         size--;
     }
 
-    public int search(int index) {
+    public T search(int index) {
         if (head == null) {
             throw new IndexOutOfBoundsException("List is empty");
         }
         if (index == 0) {
             return head.Data();
         }
+        if (index > size){
+            return null;
+        }
         int i = 0;
-        Link current = head;
+        Link<T> current = head;
         while (i < index) {
             current = current.next;
             i++;
@@ -158,10 +161,11 @@ public class CustomLinkedList {
     }
 
     public void print() {
-        Link current = head.prev;
+        Link<T> current = head.prev;
         while (current != head) {
             System.out.println(current.Data());
             current = current.next;
         }
     }
+
 }

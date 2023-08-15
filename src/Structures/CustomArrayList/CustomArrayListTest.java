@@ -10,15 +10,15 @@ public class CustomArrayListTest {
         Integer expectedEl = 123;
         test1.add(123);
         Integer actual = test1.get(0);
-        Assertions.assertEquals(expectedEl,actual);
+        Assertions.assertEquals(expectedEl, actual);
     }
 
     @Test
     void shouldThrowOutOfBoundException() {
-            Assertions.assertThrows(IndexOutOfBoundsException.class, () ->{
-                CustomArrayList test2 = new CustomArrayList(5);
-                test2.get(2);
-                    });
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+            CustomArrayList test2 = new CustomArrayList(5);
+            test2.get(2);
+        });
     }
 
     @Test

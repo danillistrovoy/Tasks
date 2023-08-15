@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CustomBinarySearchTreeTest {
-    public static void main(String[] args) {
-        printTreeTest();
-    }
     @Test
     void checkRootValue() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
@@ -65,20 +62,20 @@ public class CustomBinarySearchTreeTest {
 
 
     @Test
-     void deleteAbsentElementTest() {
+    void deleteAbsentElementTest() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
-            tree.insertLeaf(15, "Bob");
-            tree.insertLeaf(7, "Mark");
-            tree.insertLeaf(20, "Joe");
-            tree.insertLeaf(17, "Tom");
-            tree.insertLeaf(15, "Ryann");
-            boolean actual = tree.deleteLeaf(16);
+        tree.insertLeaf(15, "Bob");
+        tree.insertLeaf(7, "Mark");
+        tree.insertLeaf(20, "Joe");
+        tree.insertLeaf(17, "Tom");
+        tree.insertLeaf(15, "Ryann");
+        boolean actual = tree.deleteLeaf(16);
         Assertions.assertFalse(actual);
 
     }
 
-
-    static void printTreeTest() {
+    @Test
+    void printTreeTest() {
         CustomBinarySearchTree tree = new CustomBinarySearchTree();
         tree.insertLeaf(15, "Bob");
         tree.insertLeaf(7, "Mark");
